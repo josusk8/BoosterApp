@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BoosterApp</string>
+    <string name="txtMenu1">RM</string>
+    <string name="txtMenu2">Entreno</string>
+    <string name="txtMenu3">Opciones</string>
+
+
+    <string name="SnatchTips">SNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOLSNATCH         CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOLSNATCH         SNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOL         SNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOL</string>
+    <string name="Register">Registrarte</string>
+    <string name="NewUser">¿Nuevo usuario?</string>
+    <string name="pass">Contraseña</string>
+    <string name="NewUserRegister">Crear nuevo usuario</string>
+    <string name="Create">Generar</string>
+    <string name="WelcomeMsn">Bienvenido a BoosterAPP\\n\\rPrimer paso para disfrutar de la APP----\\r\\nSegundo sadsadsa</string>
+    <string name="name">Nombre</string>
+    <string name="Birthday">Fecha de nacimiento</string>
+    <string name="Age">Edad</string>
+
+
+    <string name="makeOptions">Crear nuevo entrenamiento</string>
+    <string name="aboutOptions">App info</string>
+    <string name="userOptions">Opciones de usuario</string>
+
+    <string name="firstWeek">Semana 1</string>
+    <string name="secondWeek">Semana 2</string>
+    <string name="thirdWeek">Semana 3</string>
+    <string name="fourthWeek">Semana 4</string>
+    <string name="title_activity_main">main</string>
+</resources>

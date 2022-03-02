@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_rm">
+
+    <fragment
+        android:id="@+id/navigation_rm"
+        android:name="com.example.boosterweigthlifting.ui.menu.rm.RmSelectedFragment"
+        android:label="@string/txtMenu1"
+        tools:layout="@layout/fragment_rm_selected">
+        <action
+            android:id="@+id/action_navigation_home_to_cleanJerkFragmentRM"
+            app:destination="@id/cleanJerkFragmentRM" />
+        <action
+            android:id="@+id/action_navigation_home_to_snatchFragmentRM2"
+            app:destination="@id/snatchFragmentRM2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_training"
+        android:name="com.example.boosterweigthlifting.ui.menu.training.TrainingFragment"
+        android:label="@string/txtMenu2"
+        tools:layout="@layout/fragment_training" />
+
+    <fragment
+        android:id="@+id/navigation_options"
+        android:name="com.example.boosterweigthlifting.ui.menu.options.OptionsFragment"
+        android:label="@string/txtMenu3"
+        tools:layout="@layout/fragment_options" />
+    <fragment
+        android:id="@+id/cleanJerkFragmentRM"
+        android:name="com.example.boosterweigthlifting.ui.menu.rm.CleanJerkFragmentRM"
+        android:label="fragment_clean_jerk_r_m"
+        tools:layout="@layout/fragment_clean_jerk_r_m" />
+    <fragment
+        android:id="@+id/snatchFragmentRM2"
+        android:name="com.example.boosterweigthlifting.ui.menu.rm.SnatchFragmentRM"
+        android:label="fragment_snatch_r_m"
+        tools:layout="@layout/fragment_snatch_r_m" />
+</navigation>

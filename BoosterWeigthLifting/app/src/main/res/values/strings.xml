@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">BoosterApp</string>
+    <string name="txtMenu1">RM</string>
+    <string name="txtMenu2">Training</string>
+    <string name="txtMenu3">Options</string>
+
+
+    <string name="SnatchTips">SNATCH TIPS ENGLISH SNATCH TIPS</string>
+    <string name="Register">Registrer</string>
+    <string name="NewUser">New user?</string>
+    <string name="pass">Password</string>
+    <string name="NewUserRegister">Create new user</string>
+    <string name="Create">Create</string>
+    <string name="WelcomeMsn">Welcome to Booster APP\r\nThe first time ----\r\nThe Second.---
+    </string>
+
+    <string name="name">Name</string>
+    <string name="Birthday">Birthday</string>
+    <string name="Age">Age</string>
+
+    <string name="makeOptions">Create new training</string>
+    <string name="aboutOptions">About</string>
+    <string name="userOptions">User options</string>
+
+    <string name="firstWeek">Week 1</string>
+    <string name="secondWeek">Week 2</string>
+    <string name="thirdWeek">Week 3</string>
+    <string name="fourthWeek">Week 4</string>
+    <string name="title_activity_main" >main</string>
+</resources>

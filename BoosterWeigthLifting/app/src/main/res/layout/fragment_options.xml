@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.menu.options.OptionsFragment"
+    android:id="@+id/optionsFragment"
+
+    >
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:id="@+id/makeOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/makeOptions"
+            android:textSize="40sp"
+            android:gravity="center">
+        </TextView>
+
+        <TextView
+            android:id="@+id/userOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/userOptions"
+            android:textSize="25sp"
+            android:gravity="center">
+        </TextView>
+
+        <TextView
+            android:id="@+id/aboutOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutOptions"
+            android:textSize="25sp"
+            android:gravity="center"
+
+            >
+        </TextView>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

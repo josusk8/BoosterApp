@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.menu.training.TrainingFragment"
+    android:id="@+id/trainingFragment">
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/firstWeek"
+            android:text="@string/firstWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.google.android.material.tabs.TabItem>
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/secondWeek"
+            android:text="@string/secondWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/thirdWeek"
+            android:text="@string/thirdWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/fourthWeek"
+            android:text="@string/fourthWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+    </com.google.android.material.tabs.TabLayout>
+</FrameLayout>
