@@ -27,4 +27,7 @@
     <string name="thirdWeek">Semana 3</string>
     <string name="fourthWeek">Semana 4</string>
     <string name="title_activity_main">main</string>
+    <string name="date">Fecha</string>
+    <string name="add">Añadir</string>
+    <string name="addNewRM">Añadir nuevo RM</string>
 </resources>

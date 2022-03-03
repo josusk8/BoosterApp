@@ -5,9 +5,115 @@
     android:layout_height="match_parent"
     tools:context=".ui.menu.rm.CleanJerkFragmentRM">
 
-    <Button
-        android:id="@+id/btnCJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clean &amp; Jerk"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:gravity="center">
+            </TextView>
+            <Button
+                android:id="@+id/btnCJ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="info"
+                android:layout_gravity="end"/>
+        </LinearLayout>
+
+
+        <lecho.lib.hellocharts.view.LineChartView
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/addNewRM"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_margin="10dp">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/editTextDate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="date"
+                android:layout_weight="1"
+                android:hint="@string/date"
+                android:layout_margin="10dp"/>
+            <EditText
+                android:id="@+id/editTextKg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:layout_weight="1"
+                android:hint="kg"
+                android:layout_margin="10dp"/>
+            <Button
+                android:id="@+id/btnNewCJ"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/add"
+                android:layout_gravity="end"
+                android:layout_weight="1.2"
+                android:layout_margin="10dp"
+                />
+        </LinearLayout>
+        <TableLayout
+            android:id="@+id/tableLayoutCyj"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:stretchColumns="3"
+
+            >
+            <TableRow>
+                <TextView
+                    android:text="@string/date"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="kg"
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:text="02/01/2022"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="100"
+                    android:gravity="right"
+                    android:padding="3dip" />
+                <Button
+                    android:text="Delete" />
+
+
+            </TableRow>
+        </TableLayout>
+
+
+    </LinearLayout>
+
+
+
 </FrameLayout>

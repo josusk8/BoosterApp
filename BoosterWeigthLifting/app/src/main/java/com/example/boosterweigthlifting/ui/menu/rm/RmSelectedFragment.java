@@ -88,6 +88,7 @@ public class RmSelectedFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_rm_selected, container, false);
 
         ImageView ivSnatch= (ImageView) view.findViewById(R.id.ivSnatch);
+        ImageView ivCyj= (ImageView) view.findViewById(R.id.ivCyj);
 
         ivSnatch.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -97,6 +98,15 @@ public class RmSelectedFragment extends Fragment {
 
                     }
                 });
+
+        ivCyj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_cleanJerkFragmentRM);
+
+            }
+        });
 
         return view;
     }
