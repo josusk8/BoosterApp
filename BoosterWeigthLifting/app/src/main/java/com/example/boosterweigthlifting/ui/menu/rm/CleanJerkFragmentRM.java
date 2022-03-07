@@ -2,11 +2,15 @@ package com.example.boosterweigthlifting.ui.menu.rm;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -14,7 +18,9 @@ import com.example.boosterweigthlifting.R;
 import com.example.boosterweigthlifting.ui.popup.SnatchActivity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
 
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
@@ -40,10 +46,14 @@ public class CleanJerkFragmentRM extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+
+
     LineChartView lineChartView;
-    String[] axisData = {"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept",
-            "Oct", "Nov", "Dec"};
-    int[] yAxisData = {50, 20, 15, 30, 20, 60, 15, 40, 45, 10, 90, 18};
+    String[] fecha = {"01/02/2021", "32/05/2022"};
+    int[] peso = {75, 120};
+
+
 
 
     public CleanJerkFragmentRM() {
@@ -87,18 +97,21 @@ public class CleanJerkFragmentRM extends Fragment {
 
         lineChartView = view.findViewById(R.id.chart);
 
-        List yAxisValues = new ArrayList();
-        List axisValues = new ArrayList();
+        List pesoValues = new ArrayList();
+        List fechaValues = new ArrayList();
+
+    //
 
 
-        Line line = new Line(yAxisValues).setColor(Color.parseColor("#9C27B0"));
 
-        for (int i = 0; i < axisData.length; i++) {
-            axisValues.add(i, new AxisValue(i).setLabel(axisData[i]));
+        Line line = new Line(pesoValues).setColor(Color.parseColor("#9C27B0"));
+
+        for (int i = 0; i < fecha.length; i++) {
+            fechaValues.add(i, new AxisValue(i).setLabel(fecha[i]));
         }
 
-        for (int i = 0; i < yAxisData.length; i++) {
-            yAxisValues.add(new PointValue(i, yAxisData[i]));
+        for (int i = 0; i < peso.length; i++) {
+            pesoValues.add(new PointValue(i, peso[i]));
         }
 
         List lines = new ArrayList();
@@ -108,7 +121,7 @@ public class CleanJerkFragmentRM extends Fragment {
         data.setLines(lines);
 
         Axis axis = new Axis();
-        axis.setValues(axisValues);
+        axis.setValues(fechaValues);
         axis.setTextSize(16);
         axis.setTextColor(Color.parseColor("#03A9F4"));
         data.setAxisXBottom(axis);
@@ -121,7 +134,13 @@ public class CleanJerkFragmentRM extends Fragment {
 
         lineChartView.setLineChartData(data);
         Viewport viewport = new Viewport(lineChartView.getMaximumViewport());
-        viewport.top = 110;
+        int yAxisDataMax = 0;
+        for (int i = 0; i < peso.length; i++) {
+            if(peso[i] > yAxisDataMax){
+                yAxisDataMax=peso[i];
+            }
+        }
+        viewport.top = yAxisDataMax;
         lineChartView.setMaximumViewport(viewport);
         lineChartView.setCurrentViewport(viewport);
 
@@ -139,6 +158,34 @@ public class CleanJerkFragmentRM extends Fragment {
             }
         });
 
+
+        TableLayout tl = (TableLayout) view.findViewById(R.id.tableLayoutCyj);
+        TableRow rowTable= (TableRow) view.findViewById(R.id.rowTable);
+        TableRow row = new TableRow(getActivity());
+        Button btnBorrar = new Button((getActivity()));
+
+        btnBorrar.setText("borrar");
+
+        TextView tv = new TextView(getActivity());
+        TextView tv2 = new TextView(getActivity());
+        tv.setText("dato1");
+        tv2.setText("dato2");
+        row.addView(tv,0);
+        row.addView(tv2,1);
+        row.addView(btnBorrar,2);
+        tl.addView(row);
+
+
+
+
+
+
+
+
+
+
         return view;
     }
+
+
 }

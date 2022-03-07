@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.menu.rm.CleanJerkFragmentRM">
 
     <LinearLayout
@@ -19,7 +19,8 @@
                 android:text="Clean &amp; Jerk"
                 android:textSize="30sp"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="center"
+                >
             </TextView>
             <Button
                 android:id="@+id/btnCJ"
@@ -43,7 +44,8 @@
             android:text="@string/addNewRM"
             android:textSize="18sp"
             android:gravity="center"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+           >
         </TextView>
 
         <LinearLayout
@@ -78,42 +80,66 @@
                 android:layout_margin="10dp"
                 />
         </LinearLayout>
+
+
         <TableLayout
             android:id="@+id/tableLayoutCyj"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:stretchColumns="3"
+            android:padding="3dip"
+            android:background="#0C000000"
 
             >
-            <TableRow>
+            <TableRow
+                android:background="#20BB86FC">
+
                 <TextView
+                    android:layout_column="0"
+                    android:padding="15dp"
                     android:text="@string/date"
-                    android:padding="3dip" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_horizontal"/>
+
                 <TextView
-                    android:text="kg"
+                    android:layout_column="1"
                     android:gravity="right"
-                    android:padding="3dip" />
+                    android:padding="15dp"
+                    android:text="kg"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_horizontal"/>
+                />
+                <TextView
+                    android:layout_column="2"/>
+                />
             </TableRow>
 
-            <TableRow>
-                <TextView
-                    android:text="02/01/2022"
-                    android:padding="3dip" />
-                <TextView
-                    android:text="100"
-                    android:gravity="right"
-                    android:padding="3dip" />
-                <Button
-                    android:text="Delete" />
+            <TableRow
+                android:id="@+id/rowTable">
 
+                <TextView
+                    android:layout_column="0"
+                    android:padding="15dp"
+                    android:text="02/01/2022" />
+
+                <TextView
+                    android:layout_column="1"
+                    android:gravity="right"
+                    android:padding="15dp"
+                    android:text="100" />
+
+                <Button
+                    android:layout_column="2"
+                    android:padding="15dp"
+                    android:text="Delete" />
 
             </TableRow>
         </TableLayout>
-
 
     </LinearLayout>
 
 
 
-</FrameLayout>
+</ScrollView>

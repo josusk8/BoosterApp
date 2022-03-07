@@ -23,4 +23,6 @@
     <style name="ThemeFragments" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
     </style>
+
+
 </resources>
