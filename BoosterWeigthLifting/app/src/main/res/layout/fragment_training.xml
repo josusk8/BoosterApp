@@ -4,39 +4,217 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.menu.training.TrainingFragment"
-    android:id="@+id/trainingFragment">
+    android:id="@+id/trainingFragment"
+    android:layout_margin="10dp">
 
-    <com.google.android.material.tabs.TabLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/firstWeek"
-            android:text="@string/firstWeek"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </com.google.android.material.tabs.TabItem>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/selecctionWeek"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    >
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageButton
+                        android:id="@+id/week1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/week1"
+                        android:scaleType="centerInside"
+                        android:background="@drawable/buttons_week"
+                        >
+                    </ImageButton>
+
+                    <ImageButton
+                        android:id="@+id/week2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/week2"
+                        android:scaleType="centerInside"
+                        android:background="@drawable/buttons_week">
+
+                    </ImageButton>
+                    <ImageButton
+                        android:id="@+id/week3"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/week3"
+                        android:scaleType="centerInside"
+                        android:background="@drawable/buttons_week">
+
+                    </ImageButton>
+                    <ImageButton
+                        android:id="@+id/week4"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/week4"
+                        android:scaleType="centerInside"
+                        android:background="@drawable/buttons_week">
+
+                    </ImageButton>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+
+                    <Switch
+                        android:id="@+id/switch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/mode" />
+                    <TextView
+                        android:id="@+id/fuerzaTecnica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/force"
+                        android:textSize="25sp">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                            android:hint="Movimiento principal">
+                            <AutoCompleteTextView
+                                android:id="@+id/autoComplete1"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:text="@string/add"
+                                android:inputType="none"
+                                android:drawableStart="@drawable/training_a"
+                                android:drawablePadding="10dp">
+
+                            </AutoCompleteTextView>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                            android:hint="Pull movimineto principal"
+
+                            >
+                            <AutoCompleteTextView
+                                android:id="@+id/autoComplete2"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:text="@string/add"
+                                android:inputType="none"
+                                android:drawableStart="@drawable/training_b"
+                                android:drawablePadding="10dp">
+
+                            </AutoCompleteTextView>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                            android:hint="Variante movimiento secundario">
+                            <AutoCompleteTextView
+
+                                android:id="@+id/autoComplete3"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:text="@string/add"
+                                android:inputType="none"
+                                android:drawableStart="@drawable/training_c"
+                                android:drawablePadding="10dp">
+
+                            </AutoCompleteTextView>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_height="wrap_content"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                            android:hint="Sentadillas">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/autoComplete4"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:inputType="none"
+                                android:text="@string/add"
+                                android:drawableStart="@drawable/training_d"
+                                android:drawablePadding="10dp">
+                            </AutoCompleteTextView>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:layout_weight="4"
+                        android:id="@+id/btnCalcular"
+                        android:text="@string/calculate"
+                        android:textAlignment="center">
+
+                    </Button>
+                </LinearLayout>
 
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/secondWeek"
-            android:text="@string/secondWeek"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+            </LinearLayout>
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/tvSalida"
+                android:layout_weight="1.7"
+                android:background="#0C000000"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="16sp">
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/thirdWeek"
-            android:text="@string/thirdWeek"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
+            </TextView>
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/fourthWeek"
-            android:text="@string/fourthWeek"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
-    </com.google.android.material.tabs.TabLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
 </FrameLayout>

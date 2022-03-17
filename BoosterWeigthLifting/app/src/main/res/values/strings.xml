@@ -30,6 +30,69 @@
     <string name="date">Date</string>
     <string name="add">Add</string>
     <string name="addNewRM">Add new RM</string>
+
+    <string name="force">Force</string>
+    <string name="tecnical">Tecnical</string>
+    <string name="mode">Mode</string>
+    <string name="selecctionWeek"> Week of training</string>
+    <string name="calculate">c\na\nl\nc\nu\nl\na\nt\ne</string>
+
+
+
+
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="movimiento_principal">
+        <item>Snatch</item>
+        <item>Hang Snatch</item>
+        <item>Clean and Jerk</item>
+        <item>Clean Squat Jerk</item>
+        <item>Clean +2 Jerk</item>
+    </string-array>
+
+    <string-array name="pull_principal1">
+        <item>Snatch Pull</item>
+        <item>Panda Pull</item>
+        <item>Snatch Deadlift</item>
+        <item>Snacth Highpull</item>
+    </string-array>
+
+    <string-array name="pull_principal2">
+        <item>Clean Pull</item>
+        <item>Clean Deadlift</item>
+    </string-array>
+
+    <string-array name="movimiento_variante1">
+        <item>Power Snatch</item>
+        <item>Hang Power Snatch</item>
+        <item>Hang Squat Snatch</item>
+        <item>Slow Snatch</item>
+        <item>Pause Snatch</item>
+    </string-array>
+
+    <string-array name="movimiento_variante2">
+        <item>Power Clean</item>
+        <item>Hang Power Clean</item>
+        <item>Hang Squat Clean</item>
+        <item>Push Press</item>
+        <item>Push Jerk</item>
+        <item>Split Jerk</item>
+        <item>Slow Clean</item>
+        <item>Pause Clean</item>
+    </string-array>
+
+    <string-array name="sentadillas">
+        <item>Back Squat</item>
+        <item>Front Squat</item>
+        <item>Pause Back Squat</item>
+        <item>Pause Front Squat</item>
+
+    </string-array>
+
+
+
+
+
 </resources>

@@ -19,12 +19,26 @@
         <entry key="..\:/Users/Equipo1/Desktop/DAM/FCT/Booster/App Android/BoosterWeigthLifting/app/src/main/res/menu/bottom_nav_menu.xml" value="0.184375" />
         <entry key="..\:/Users/Equipo1/Desktop/DAM/FCT/Booster/App Android/BoosterWeigthLifting/app/src/main/res/menu/menu.xml" value="0.259375" />
         <entry key="..\:/Users/Equipo1/Documents/GitHub/BoosterApp/BoosterWeigthLifting/app/src/main/res/drawable/borde_tabla.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/Equipo1/Documents/GitHub/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/activity_registrer.xml" value="0.15172101449275363" />
         <entry key="..\:/Users/Equipo1/Documents/GitHub/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/fragment_clean_jerk_r_m.xml" value="0.22" />
         <entry key="..\:/Users/Equipo1/Documents/GitHub/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/fragment_table.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/drawable/buttons_week.xml" value="0.148" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/drawable/buttons_weekSelection.xml" value="0.1345" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/drawable/buttons_week_selected.xml" value="0.1345" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/drawable/rounded_edittex.xml" value="0.148" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/drawable/week_1_background.xml" value="0.1065" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/activity_main.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/activity_snatch.xml" value="0.10625" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/fragment_clean_jerk_r_m.xml" value="0.10625" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/fragment_rm_selected.xml" value="0.10625" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/fragment_snatch_r_m.xml" value="0.10625" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/fragment_training.xml" value="0.22" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/layout/list_a.xml" value="0.10625" />
+        <entry key="..\:/Users/Osv3/Documents/Trabajo/Proyecto Final/BoosterApp/BoosterWeigthLifting/app/src/main/res/mipmap-anydpi-v26/week_1.xml" value="0.1065" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

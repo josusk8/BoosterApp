@@ -30,4 +30,10 @@
     <string name="date">Fecha</string>
     <string name="add">Añadir</string>
     <string name="addNewRM">Añadir nuevo RM</string>
+
+    <string name="force">Fuerza</string>
+    <string name="tecnical">Técnica</string>
+    <string name="mode">Modo</string>
+    <string name="selecctionWeek">Semana de entrenamiento</string>
+    <string name="calculate">c\na\nl\nc\nu\nl\na\nr</string>
 </resources>
