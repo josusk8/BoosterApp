@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.menu.daily.TrainingDaily"
+    android:background="@drawable/training_background">
+
+    <ViewFlipper
+        android:id="@+id/vfDaily"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="3"
+                    android:background="#CC2196F3"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="WOD 1 - 18/03/2022"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#8064FFDA"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="Snatch"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#3364FFDA"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="59.5kg - 67.5Kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#3364FFDA"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x3"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#80FFE0B2"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="Power Clean"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#33FFE0B2"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="102kg - 115.65kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#33FFE0B2"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x5"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#80FFCCBC"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="Hang Power Clean"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#33FFCCBC"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="76.5kg - 102kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#33FFCCBC"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="2x5"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#802196F3"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="Front Squat"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#332196F3"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="75kg - 105kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#332196F3"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="4x6"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="3"
+                    android:background="#CC2196F3"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="WOD 2 - 20/03/2022"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#8064FFDA"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="Clean and Jerk"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#3364FFDA"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="89.5kg - 107.5Kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#3364FFDA"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x3"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#80FFE0B2"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="Snatch Pull"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#33FFE0B2"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="68kg - 75.65kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#33FFE0B2"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x5"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#80FFCCBC"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="Power Snatch"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#33FFCCBC"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="76.5kg - 102kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#33FFCCBC"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="2x5"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#802196F3"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="Back Squat"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#332196F3"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="75kg - 105kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="#332196F3"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="4x6"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+        </TableLayout>
+
+
+
+    </ViewFlipper>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnSiguiente"
+            android:layout_width="30dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="#00BDBDBD"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back"
+            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+
+        <ImageButton
+            android:id="@+id/btnAtras"
+            android:layout_width="30dp"
+            android:layout_height="60dp"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:background="#00BDBDBD"
+            android:scaleType="fitCenter"
+            android:src="@drawable/next"
+            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+    </LinearLayout>
+
+</LinearLayout>

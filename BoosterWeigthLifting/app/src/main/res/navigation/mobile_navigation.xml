@@ -28,7 +28,11 @@
         android:id="@+id/navigation_options"
         android:name="com.example.boosterweigthlifting.ui.menu.options.OptionsFragment"
         android:label="@string/txtMenu3"
-        tools:layout="@layout/fragment_options" />
+        tools:layout="@layout/fragment_options" >
+        <action
+            android:id="@+id/action_navigation_options_to_navigation_training"
+            app:destination="@id/navigation_training" />
+    </fragment>
     <fragment
         android:id="@+id/cleanJerkFragmentRM"
         android:name="com.example.boosterweigthlifting.ui.menu.rm.CleanJerkFragmentRM"
@@ -39,4 +43,9 @@
         android:name="com.example.boosterweigthlifting.ui.menu.rm.SnatchFragmentRM"
         android:label="fragment_snatch_r_m"
         tools:layout="@layout/fragment_snatch_r_m" />
+    <fragment
+        android:id="@+id/trainingDaily"
+        android:name="com.example.boosterweigthlifting.ui.menu.daily.TrainingDaily"
+        android:label="fragment_training_daily"
+        tools:layout="@layout/fragment_training_daily" />
 </navigation>

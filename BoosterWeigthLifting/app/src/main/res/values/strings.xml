@@ -26,7 +26,7 @@
     <string name="secondWeek">Week 2</string>
     <string name="thirdWeek">Week 3</string>
     <string name="fourthWeek">Week 4</string>
-    <string name="title_activity_main" >main</string>
+    <string name="title_activity_main">main</string>
     <string name="date">Date</string>
     <string name="add">Add</string>
     <string name="addNewRM">Add new RM</string>
@@ -38,9 +38,7 @@
     <string name="calculate">c\na\nl\nc\nu\nl\na\nt\ne</string>
 
 
-
-
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
@@ -90,9 +88,6 @@
         <item>Pause Front Squat</item>
 
     </string-array>
-
-
-
 
 
 </resources>

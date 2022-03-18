@@ -7,7 +7,7 @@
         android:title="@string/txtMenu1"/>
 
     <item
-        android:id="@+id/navigation_training"
+        android:id="@+id/trainingDaily"
         android:icon="@drawable/icon_training"
         android:title="@string/txtMenu2" />
 

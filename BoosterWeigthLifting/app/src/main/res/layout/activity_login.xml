@@ -3,29 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="ui.login.Login">
+    tools:context="ui.login.Login"
+    android:background="@drawable/initt"
+    >
 
     <ImageView
         android:id="@+id/ivLogoLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+       android:src="@drawable/logoinit"
+        android:layout_marginBottom="200dp"
+        />
 
 
     <EditText
+
         android:id="@+id/etEmail"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="Email" />
+        android:background="#81FFFFFF"
+        android:hint="Email"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        />
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:hint="@string/pass" />
+        android:background="#81FFFFFF"
+        android:hint="@string/pass"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp" />
 
     <Button
 
@@ -44,9 +57,11 @@
         android:orientation="horizontal">
 
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/NewUser" />
+            android:text="@string/NewUser"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/tvRegister"
@@ -54,7 +69,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="@string/Register"
-            android:textColor="@color/black" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+
+
+            />
 
 
     </LinearLayout>

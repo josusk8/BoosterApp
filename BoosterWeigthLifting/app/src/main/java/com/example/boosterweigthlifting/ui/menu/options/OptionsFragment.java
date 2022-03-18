@@ -1,13 +1,18 @@
 package com.example.boosterweigthlifting.ui.menu.options;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.boosterweigthlifting.R;
+import com.example.boosterweigthlifting.ui.login.RegistrerActivity;
+import com.example.boosterweigthlifting.ui.menu.daily.TrainingDaily;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,7 +64,22 @@ public class OptionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_options, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_options, container, false);
+
+        TextView makeOptions = (TextView) view.findViewById(R.id.makeOptions);
+
+        makeOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Navigation.findNavController(view).navigate(R.id.action_navigation_options_to_navigation_training);
+
+            }
+        });
+
+
+        return view ;
     }
 }
