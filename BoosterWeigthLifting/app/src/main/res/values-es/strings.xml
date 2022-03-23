@@ -6,7 +6,18 @@
     <string name="txtMenu3">Opciones</string>
 
 
-    <string name="SnatchTips">SNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOLSNATCH         CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOLSNATCH         SNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOL         SNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOLSNATCH CONSEJOS ESPAÑOL</string>
+    <string name="Tips1">
+       Aproximo un peso prudencial que pueda levantar holgadamente
+        </string>
+    <string name="Tips2">
+        Aumento peso y ejecuto la repetición
+       </string>
+    <string name="Tips3">
+        Repetir paso 2 hasta que no pueda ejecutar bien el movimiento
+      </string>
+    <string name="Tips4">
+        Añadir mi RM en la app Booster\n</string>
+
     <string name="Register">Registrarte</string>
     <string name="NewUser">¿Nuevo usuario?</string>
     <string name="pass">Contraseña</string>
@@ -22,6 +33,10 @@
     <string name="aboutOptions">App info</string>
     <string name="userOptions">Opciones de usuario</string>
 
+    <string name="exerciseName">Rep Max</string>
+    <string name="exerciseName1">Snatch</string>
+    <string name="exerciseName2">Clean &amp; Jerk</string>
+    <string name="exerciseName3">Squat</string>
     <string name="firstWeek">Semana 1</string>
     <string name="secondWeek">Semana 2</string>
     <string name="thirdWeek">Semana 3</string>
@@ -30,10 +45,19 @@
     <string name="date">Fecha</string>
     <string name="add">Añadir</string>
     <string name="addNewRM">Añadir nuevo RM</string>
+    <string name="note">Nota</string>
 
     <string name="force">Fuerza</string>
     <string name="tecnical">Técnica</string>
     <string name="mode">Modo</string>
     <string name="selecctionWeek">Semana de entrenamiento</string>
     <string name="calculate">c\na\nl\nc\nu\nl\na\nr</string>
+
+
+
+    <string name="complete">¿Completado?</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

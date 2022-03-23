@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,27 +9,50 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/background_rm">
 
-        <ImageView
-            android:id="@+id/ivCyj"
+        <TextView
+            android:id="@+id/tvCyj"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerCrop"
-            android:src="@drawable/splitjerk12"
+            android:text="C\nL\nE\nA\nN\n \n&amp;\n \nJ\nE\nR\nK"
+            android:textColor="@color/white"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:gravity="center"
             >
 
-            </ImageView>
+            </TextView>
 
 
-        <ImageView
+        <TextView
             android:layout_weight="1"
             android:scaleType="centerCrop"
-            android:id="@+id/ivSnatch"
+            android:id="@+id/tvSnatch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/snacth12" />
+            android:text="S\nN\nA\nT\nC\nH"
+            android:textColor="@color/white"
+
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:gravity="center"
+
+            />
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tvSquat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="B\nA\nC\nK\n \nS\nQ\nU\nA\nT"
+            android:textColor="@color/white"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:gravity="center"
+             />
 
     </LinearLayout>
 

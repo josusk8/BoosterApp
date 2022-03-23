@@ -1,26 +1,22 @@
 package com.example.boosterweigthlifting.ui.popup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.net.Uri;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.util.DisplayMetrics;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.MediaController;
-import android.widget.VideoView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.boosterweigthlifting.R;
 
 
-public class SnatchActivity extends AppCompatActivity {
+public class InfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_snatch);
+        setContentView(R.layout.activity_info);
 
         DisplayMetrics medidaVentana = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(medidaVentana);
@@ -30,24 +26,23 @@ public class SnatchActivity extends AppCompatActivity {
 
         getWindow().setLayout((int) (ancho * 0.85), (int) (alto * 0.5));
 
-        WebView vSnatch = (WebView) findViewById(R.id.vSnatch);
+        WebView wvInfo = (WebView) findViewById(R.id.wvInfo);
 
+        Bundle extras = getIntent().getExtras();
+        String URL = extras.get("url").toString();
 
-
-
-        String URL = "https://www.youtube.com/embed/9xQp2sldyts";
         String videoStr = (new VideoHtmlString().getHtmlString(URL));
 
-        vSnatch.setWebViewClient(new WebViewClient() {
+        wvInfo.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return false;
             }
         });
 
-        WebSettings ws = vSnatch.getSettings();
+        WebSettings ws = wvInfo.getSettings();
         ws.setJavaScriptEnabled(true);
-        vSnatch.loadData(videoStr, "text/html", "utf-8");
+        wvInfo.loadData(videoStr, "text/html", "utf-8");
 
 
     }

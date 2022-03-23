@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/training_background"
     android:orientation="vertical"
-    tools:context=".ui.menu.daily.TrainingDaily"
-    android:background="@drawable/training_background">
+    tools:context=".ui.menu.daily.TrainingDaily">
 
-    <ViewFlipper
-        android:id="@+id/vfDaily"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:layout_weight="1">
 
         <TableLayout
+            android:id="@+id/table"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="50dp">
 
             <TableRow
                 android:layout_width="fill_parent"
@@ -25,16 +28,18 @@
                 android:gravity="center_horizontal">
 
                 <TextView
+                    android:id="@+id/tvTittle"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_span="3"
-                    android:background="#CC2196F3"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="WOD 1 - 18/03/2022"
+                    android:text="WOD 1 - S1 FUERZA"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     android:textStyle="bold" />
+
             </TableRow>
 
             <TableRow
@@ -43,22 +48,31 @@
                 android:gravity="center_horizontal">
 
                 <TextView
+                    android:id="@+id/tvFirstMov"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#8064FFDA"
+                    android:layout_span="2"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
-                    android:padding="20dp"
+                    android:padding="5dp"
                     android:text="Snatch"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
                 <TextView
+                    android:id="@+id/tvFirstMovKg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_span="1"
-                    android:background="#3364FFDA"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
                     android:text="59.5kg - 67.5Kg"
@@ -67,10 +81,24 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvFirstMovSeries"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_span="1"
-                    android:background="#3364FFDA"
+                    android:background="@drawable/borde_tabla"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x3"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvFirstMovReps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
                     android:text="3x3"
@@ -86,233 +114,61 @@
                 android:gravity="center_horizontal">
 
                 <TextView
+                    android:id="@+id/tvPullFirstMov"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#80FFE0B2"
+                    android:layout_span="2"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
-                    android:padding="20dp"
-                    android:text="Power Clean"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#33FFE0B2"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="102kg - 115.65kg"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#33FFE0B2"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="3x5"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#80FFCCBC"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="Hang Power Clean"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#33FFCCBC"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="76.5kg - 102kg"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#33FFCCBC"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="2x5"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#802196F3"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="Front Squat"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#332196F3"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="75kg - 105kg"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#332196F3"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="4x6"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-            </TableRow>
-
-        </TableLayout>
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_span="3"
-                    android:background="#CC2196F3"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="WOD 2 - 20/03/2022"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#8064FFDA"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="Clean and Jerk"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#3364FFDA"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="89.5kg - 107.5Kg"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#3364FFDA"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="3x3"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#80FFE0B2"
-                    android:gravity="center"
-                    android:padding="20dp"
+                    android:padding="5dp"
                     android:text="Snatch Pull"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
+            </TableRow>
+
+            <TableRow
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
                 <TextView
+                    android:id="@+id/tvPullFirstMovKg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_span="1"
-                    android:background="#33FFE0B2"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="68kg - 75.65kg"
+                    android:text="59.5kg - 67.5Kg"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvPullFirstMovSeries"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_span="1"
-                    android:background="#33FFE0B2"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x5"
+                    android:text="3x3"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPullFirstMovReps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="@drawable/borde_tabla"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -325,40 +181,18 @@
                 android:gravity="center_horizontal">
 
                 <TextView
+                    android:id="@+id/tvVariantSecMov"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#80FFCCBC"
+                    android:layout_span="2"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
-                    android:padding="20dp"
-                    android:text="Power Snatch"
+                    android:padding="5dp"
+                    android:text="Hang Power Snatch"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#33FFCCBC"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="76.5kg - 102kg"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_span="1"
-                    android:background="#33FFCCBC"
-                    android:gravity="center"
-                    android:padding="20dp"
-                    android:text="2x5"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
             </TableRow>
 
             <TableRow
@@ -367,48 +201,156 @@
                 android:gravity="center_horizontal">
 
                 <TextView
+                    android:id="@+id/tvVariantSecMovKg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_span="1"
-                    android:background="#802196F3"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
+                    android:text="59.5kg - 67.5Kg"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvVariantSecMovSeries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="@drawable/borde_tabla"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x3"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvVariantSecMovReps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="@drawable/borde_tabla"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x3"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/tvSquats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="2"
+                    android:background="@drawable/borde_tabla"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:text="Back Squat"
                     android:textColor="#FFFFFF"
-                    android:textSize="12dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
                 <TextView
+                    android:id="@+id/tvSquatsKg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_span="1"
-                    android:background="#332196F3"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="75kg - 105kg"
+                    android:text="100.5kg - 120.5Kg"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvSquatsSeries"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_span="1"
-                    android:background="#332196F3"
+                    android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="4x6"
+                    android:text="3x3"
                     android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSquatsReps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="1"
+                    android:background="@drawable/borde_tabla"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="3x3"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layoutDirection="rtl"
+                    android:text="@string/complete"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <EditText
+                    android:id="@+id/tvComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="3"
+                    android:background="@android:drawable/screen_background_dark_transparent"
+                    android:gravity="center"
+                    android:hint="@string/note"
+                    android:padding="20dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="@color/divider"
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
             </TableRow>
+
 
         </TableLayout>
 
+    </ScrollView>
 
-
-    </ViewFlipper>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -416,7 +358,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/btnSiguiente"
+            android:id="@+id/btnAtras"
             android:layout_width="30dp"
             android:layout_height="60dp"
             android:layout_gravity="right"
@@ -424,10 +366,23 @@
             android:background="#00BDBDBD"
             android:scaleType="fitCenter"
             android:src="@drawable/back"
-            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+            app:tint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
-            android:id="@+id/btnAtras"
+            android:id="@+id/btnMake"
+            android:layout_width="30dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="#00BDBDBD"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_make"
+            app:tint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/btnSiguiente"
             android:layout_width="30dp"
             android:layout_height="60dp"
             android:layout_gravity="left"
@@ -435,7 +390,9 @@
             android:background="#00BDBDBD"
             android:scaleType="fitCenter"
             android:src="@drawable/next"
-            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+            app:tint="@color/white"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
+
 
 </LinearLayout>

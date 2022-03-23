@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -26,18 +27,12 @@ public class RmSelectedFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
 
-
-
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     ImageView ivSnatch;
     FragmentTransaction transaction;
     Fragment rmSelectedFragment, cleanJerkFragmentRM, snatchFragmentRM;
-
-
-
 
 
     public RmSelectedFragment() {
@@ -68,7 +63,6 @@ public class RmSelectedFragment extends Fragment {
     }
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +73,6 @@ public class RmSelectedFragment extends Fragment {
         }
 
 
-
     }
 
     @Override
@@ -87,23 +80,40 @@ public class RmSelectedFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rm_selected, container, false);
 
-        ImageView ivSnatch= (ImageView) view.findViewById(R.id.ivSnatch);
-        ImageView ivCyj= (ImageView) view.findViewById(R.id.ivCyj);
+        TextView tvSnatch = (TextView) view.findViewById(R.id.tvSnatch);
+        TextView tvCyj = (TextView) view.findViewById(R.id.tvCyj);
+        TextView tvSquat = (TextView) view.findViewById(R.id.tvSquat);
+        Bundle bundle = new Bundle();
 
-        ivSnatch.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
 
-                        Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_snatchFragmentRM2);
-
-                    }
-                });
-
-        ivCyj.setOnClickListener(new View.OnClickListener() {
+        tvSnatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_cleanJerkFragmentRM);
+                bundle.putString("name", "Snatch");
+                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_fragmentRM, bundle);
+
+
+            }
+        });
+
+        tvCyj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bundle.putString("name", "Clean & Jerk");
+                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_fragmentRM, bundle);
+
+
+            }
+        });
+
+        tvSquat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bundle.putString("name", "Back Squat");
+                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_fragmentRM, bundle);
 
             }
         });

@@ -2,12 +2,12 @@ package com.example.boosterweigthlifting.ui.menu.rm;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -15,12 +15,10 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.boosterweigthlifting.R;
-import com.example.boosterweigthlifting.ui.popup.SnatchActivity;
+import com.example.boosterweigthlifting.ui.popup.InfoActivity;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
 
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
@@ -32,10 +30,10 @@ import lecho.lib.hellocharts.view.LineChartView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CleanJerkFragmentRM#newInstance} factory method to
+ * Use the {@link FragmentRM#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CleanJerkFragmentRM extends Fragment {
+public class FragmentRM extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,27 +48,28 @@ public class CleanJerkFragmentRM extends Fragment {
 
 
     LineChartView lineChartView;
-    String[] fecha = {"01/02/2021", "32/05/2022"};
-    int[] peso = {75, 120};
+    String[] fecha = {"01/02/2021", "28/09/2021","12/05/2022" };
+    int[] peso = {75, 120, 134};
 
 
 
 
-    public CleanJerkFragmentRM() {
+    public FragmentRM() {
         // Required empty public constructor
     }
 
+    String name;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CleanJerkFragmentRM.
+     * @return A new instance of fragment FragmentRM.
      */
     // TODO: Rename and change types and number of parameters
-    public static CleanJerkFragmentRM newInstance(String param1, String param2) {
-        CleanJerkFragmentRM fragment = new CleanJerkFragmentRM();
+    public static FragmentRM newInstance(String param1, String param2) {
+        FragmentRM fragment = new FragmentRM();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -86,13 +85,22 @@ public class CleanJerkFragmentRM extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
 
         }
+
+       name = getArguments().getString("name").toString();
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_clean_jerk_r_m, container, false);
+        View view = inflater.inflate(R.layout.fragment_r_m, container, false);
+
+        TextView exercise = (TextView) view.findViewById(R.id.exercise);
+        exercise.setText(name);
+
 
 
         lineChartView = view.findViewById(R.id.chart);
@@ -148,18 +156,37 @@ public class CleanJerkFragmentRM extends Fragment {
 
 
 
-        Button btnCJ = (Button) view.findViewById(R.id.btnCJ);
-        btnCJ.setOnClickListener(new View.OnClickListener() {
+        ImageButton btnInfo = (ImageButton) view.findViewById(R.id.btnInfo);
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+
+            String url;
             @Override
             public void onClick(View view) {
 
-                Intent SnatchInfo = new Intent(getActivity(), SnatchActivity.class);
-                startActivity(SnatchInfo);
+                switch (name){
+                    case "Snatch":
+                        url = "https://www.youtube.com/embed/9xQp2sldyts";
+                        break;
+                    case "Clean & Jerk":
+                        url = "https://www.youtube.com/embed/PjY1rH4_MOA";
+                        break;
+                    case"Back Squat":
+                        url = "https://www.youtube.com/embed/QmZAiBqPvZw";
+                        break;
+                    default:
+                        break;
+
+                }
+
+                Intent info = new Intent(getActivity(), InfoActivity.class);
+                info.putExtra("url", url);
+                startActivity(info);
             }
         });
 
 
-        TableLayout tl = (TableLayout) view.findViewById(R.id.tableLayoutCyj);
+        TableLayout tl = (TableLayout) view.findViewById(R.id.tableLayoutRM);
         TableRow rowTable= (TableRow) view.findViewById(R.id.rowTable);
         TableRow row = new TableRow(getActivity());
         Button btnBorrar = new Button((getActivity()));

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.menu.rm.CleanJerkFragmentRM">
+    tools:context=".ui.menu.rm.FragmentRM">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,22 +13,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+           >
+
             <TextView
+                android:id="@+id/exercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clean &amp; Jerk"
+                android:text="@string/exerciseName"
                 android:textSize="30sp"
                 android:layout_weight="1"
                 android:gravity="center"
                 >
             </TextView>
-            <Button
-                android:id="@+id/btnCJ"
+
+            <ImageButton
+
+                android:id="@+id/btnInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="info"
-                android:layout_gravity="end"/>
+                android:src="@drawable/icon_info"
+                android:background="#00FF4081"
+                android:layout_gravity="end"
+                app:tint="@color/accent">
+
+            </ImageButton>
+
         </LinearLayout>
 
 
@@ -37,6 +48,12 @@
             android:layout_height="200dp"
             android:layout_margin="10dp"
             />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
 
         <TextView
             android:layout_width="match_parent"
@@ -52,38 +69,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/editTextDate"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:ems="10"
-                android:inputType="date"
-                android:layout_weight="1"
                 android:hint="@string/date"
-                android:layout_margin="10dp"/>
+                android:inputType="date"
+                android:textSize="20dp" />
+
             <EditText
                 android:id="@+id/editTextKg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:layout_weight="1"
-                android:hint="kg"
-                android:layout_margin="10dp"/>
-            <Button
-                android:id="@+id/btnNewCJ"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/add"
-                android:layout_gravity="end"
-                android:layout_weight="1.2"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
                 android:layout_margin="10dp"
-                />
+
+                android:ems="10"
+                android:hint="kg"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="@string/add" />
+
         </LinearLayout>
 
 
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="?android:attr/listDivider" />
+
         <TableLayout
-            android:id="@+id/tableLayoutCyj"
+            android:id="@+id/tableLayoutRM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

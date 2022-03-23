@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.boosterweigthlifting.MainActivity;
 import com.example.boosterweigthlifting.R;
-import com.example.boosterweigthlifting.ui.popup.SnatchActivity;
 
 public class Login extends AppCompatActivity {
 

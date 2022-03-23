@@ -1,5 +1,7 @@
 package com.example.boosterweigthlifting;
 
+import java.util.Date;
+
 public class Wod {
 
     private PrilepinTabla prilepinTabla = new PrilepinTabla();
@@ -10,6 +12,9 @@ public class Wod {
     private Ejercicio sentadillas;
     private int semana;
     private int dia;
+    private String comentario;
+    private Date fecha;
+    private boolean chek;
 
 
 
@@ -25,6 +30,9 @@ public class Wod {
     }
 
     public void makeWod(int semana, int dia) {
+
+        this.semana = semana;
+        this.dia = dia;
 
         switch (semana) {
             case 1:
@@ -252,5 +260,29 @@ public class Wod {
 
     public void setDia(int dia) {
         this.dia = dia;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public boolean isChek() {
+        return chek;
+    }
+
+    public void setChek(boolean chek) {
+        this.chek = chek;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 }
