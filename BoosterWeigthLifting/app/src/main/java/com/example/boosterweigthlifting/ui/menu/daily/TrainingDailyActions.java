@@ -1,6 +1,7 @@
 package com.example.boosterweigthlifting.ui.menu.daily;
 
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.boosterweigthlifting.Ejercicio;
@@ -20,6 +21,8 @@ public class TrainingDailyActions {
     TextView tvPullFirtsMov, tvPullFirstMovKg, tvPullFirstMovSeries, tvPullFirstMovReps;
     TextView tvVariantSecMov, tvVariantSecMovKg, tvVariantSecMovSeries, tvVariantSecMovReps;
     TextView tvSquats, tvSquatsKg, tvSquatsSeries, tvSquatsReps;
+    TextView tvComent;
+    CheckBox checkBox;
 
 
     public TrainingDailyActions(View view) {
@@ -47,6 +50,9 @@ public class TrainingDailyActions {
         tvSquatsSeries = (TextView) view.findViewById(R.id.tvSquatsSeries);
         tvSquatsReps = (TextView) view.findViewById(R.id.tvSquatsReps);
 
+        tvComent = (TextView) view.findViewById(R.id.tvComment);
+        checkBox = (CheckBox) view.findViewById(R.id.checkBox);
+
         persistencia = new Persistencia();
         wods = persistencia.getWods();
 
@@ -56,39 +62,12 @@ public class TrainingDailyActions {
     public void mostrarPrimero() {
 
 
+
         if (wods.size() > 1) {
 
             Wod wod = wods.get(0);
             position = 0;
-            tvTittle.setText("HOLA");
-
-            Ejercicio movPrincipal = wod.getMovPrincipal();
-            Ejercicio varMovSecundario = wod.getVarMovSecundario();
-            Ejercicio pullMovPrincipal = wod.getPullMovPrincipal();
-            Ejercicio sentadillas = wod.getSentadillas();
-
-            tvTittle.setText("WOD " + wod.getSemana() + " - " + wod.getDia() + 1);
-            tvFirstMov.setText(movPrincipal.getNombre());
-            tvFirstMovKg.setText("" + movPrincipal.getPeso()[0] + " - " + movPrincipal.getPeso()[1]+"kg");
-            tvFirstMovSeries.setText("" + movPrincipal.getRepsSerie()[0] + " - " + movPrincipal.getRepsSerie()[1]+" s");
-            tvFirstMovReps.setText("" + movPrincipal.getRepsTotal()[0] + " - "
-                    + movPrincipal.getRepsTotal()[1]+ " ("+movPrincipal.getRepsOptima()+") rep");
-
-            tvPullFirtsMov.setText(pullMovPrincipal.getNombre());
-            tvPullFirstMovKg.setText("" + pullMovPrincipal.getPeso()[0] + " - " + pullMovPrincipal.getPeso()[1]);
-            tvPullFirstMovSeries.setText("" + pullMovPrincipal.getRepsSerie()[0] + " - " + pullMovPrincipal.getRepsSerie()[1]);
-            tvPullFirstMovReps.setText("" + pullMovPrincipal.getRepsTotal()[0] + " - " + pullMovPrincipal.getRepsTotal()[1]);
-
-            tvVariantSecMov.setText(varMovSecundario.getNombre());
-            tvVariantSecMovKg.setText("" + varMovSecundario.getPeso()[0] + " - " + varMovSecundario.getPeso()[1]);
-            tvVariantSecMovSeries.setText("" + varMovSecundario.getRepsSerie()[0] + " - " + varMovSecundario.getRepsSerie()[1]);
-            tvVariantSecMovReps.setText("" + varMovSecundario.getRepsTotal()[0] + " - " + varMovSecundario.getRepsTotal()[1]);
-
-            tvSquats.setText(sentadillas.getNombre());
-            tvSquatsKg.setText("" + sentadillas.getPeso()[0] + " - " + sentadillas.getPeso()[1]);
-            tvSquatsSeries.setText("" + sentadillas.getRepsSerie()[0] + " - " + sentadillas.getRepsSerie()[1]);
-            tvSquatsReps.setText("" + sentadillas.getRepsTotal()[0] + " - " + sentadillas.getRepsTotal()[1]);
-
+            rellenarCampos(wod);
 
         }
 
@@ -96,51 +75,83 @@ public class TrainingDailyActions {
 
     public void mostrarSiguiente() {
 
-        if (wods.size() > (position + 1)) {
+        grabar();
 
+
+        if (wods.size() > (position + 1)) {
             position++;
             Wod wod = wods.get(position);
+            rellenarCampos(wod);
 
-
-            Ejercicio movPrincipal = wod.getMovPrincipal();
-            Ejercicio varMovSecundario = wod.getVarMovSecundario();
-            Ejercicio pullMovPrincipal = wod.getPullMovPrincipal();
-            Ejercicio sentadillas = wod.getSentadillas();
-
-            tvTittle.setText("WOD " + wod.getSemana() + " - " + wod.getDia() + 1);
-            tvFirstMov.setText(movPrincipal.getNombre());
-            tvFirstMovKg.setText("" + movPrincipal.getPeso()[0] + " - " + movPrincipal.getPeso()[1]);
-            tvFirstMovSeries.setText("" + movPrincipal.getRepsSerie()[0] + " - " + movPrincipal.getRepsSerie()[1]);
-            tvFirstMovReps.setText("" + movPrincipal.getRepsTotal()[0] + " - " + movPrincipal.getRepsTotal()[1]);
-
-            tvPullFirtsMov.setText(pullMovPrincipal.getNombre());
-            tvPullFirstMovKg.setText("" + pullMovPrincipal.getPeso()[0] + " - " + pullMovPrincipal.getPeso()[1]);
-            tvPullFirstMovSeries.setText("" + pullMovPrincipal.getRepsSerie()[0] + " - " + pullMovPrincipal.getRepsSerie()[1]);
-            tvPullFirstMovReps.setText("" + pullMovPrincipal.getRepsTotal()[0] + " - " + pullMovPrincipal.getRepsTotal()[1]);
-
-            tvVariantSecMov.setText(varMovSecundario.getNombre());
-            tvVariantSecMovKg.setText("" + varMovSecundario.getPeso()[0] + " - " + varMovSecundario.getPeso()[1]);
-            tvVariantSecMovSeries.setText("" + varMovSecundario.getRepsSerie()[0] + " - " + varMovSecundario.getRepsSerie()[1]);
-            tvVariantSecMovReps.setText("" + varMovSecundario.getRepsTotal()[0] + " - " + varMovSecundario.getRepsTotal()[1]);
-
-            tvSquats.setText(sentadillas.getNombre());
-            tvSquatsKg.setText("" + sentadillas.getPeso()[0] + " - " + sentadillas.getPeso()[1]);
-            tvSquatsSeries.setText("" + sentadillas.getRepsSerie()[0] + " - " + sentadillas.getRepsSerie()[1]);
-            tvSquatsReps.setText("" + sentadillas.getRepsTotal()[0] + " - " + sentadillas.getRepsTotal()[1]);
-
+        }else{
+            position = 0;
+            Wod wod = wods.get(position);
+            rellenarCampos(wod);
 
         }
     }
 
     public void mostrarAtras() {
 
+        grabar();
+
         if (position == 0) {
+            position = wods.size()-1;
+            Wod wod = wods.get(position);
+            rellenarCampos(wod);
 
         } else {
-            wods.get(position - 1);
             position--;
+            Wod wod = wods.get(position);
+            rellenarCampos(wod);
+
         }
 
     }
 
+    public void rellenarCampos(Wod wod){
+
+        Ejercicio movPrincipal = wod.getMovPrincipal();
+        Ejercicio varMovSecundario = wod.getVarMovSecundario();
+        Ejercicio pullMovPrincipal = wod.getPullMovPrincipal();
+        Ejercicio sentadillas = wod.getSentadillas();
+
+        tvTittle.setText("WOD " + wod.getSemana() + " - " + wod.getDia() + 1 );
+        tvFirstMov.setText(movPrincipal.getNombre());
+        tvFirstMovKg.setText("" + movPrincipal.getPeso()[0] + " - " + movPrincipal.getPeso()[1]+"kg");
+        tvFirstMovSeries.setText("" + movPrincipal.getRepsSerie()[0] + " - " + movPrincipal.getRepsSerie()[1]+" serie");
+        tvFirstMovReps.setText("" + movPrincipal.getRepsTotal()[0] + " - "
+                + movPrincipal.getRepsTotal()[1]+ " ("+movPrincipal.getRepsOptima()+") rep");
+
+        tvPullFirtsMov.setText(pullMovPrincipal.getNombre());
+        tvPullFirstMovKg.setText("" + pullMovPrincipal.getPeso()[0] + " - " + pullMovPrincipal.getPeso()[1]+"kg");
+        tvPullFirstMovSeries.setText("" + pullMovPrincipal.getRepsSerie()[0] + " - " + pullMovPrincipal.getRepsSerie()[1]+" serie");
+        tvPullFirstMovReps.setText("" + pullMovPrincipal.getRepsTotal()[0] + " - "
+                + pullMovPrincipal.getRepsTotal()[1]+ " ("+pullMovPrincipal.getRepsOptima()+") rep");
+
+        tvVariantSecMov.setText(varMovSecundario.getNombre());
+        tvVariantSecMovKg.setText("" + varMovSecundario.getPeso()[0] + " - " + varMovSecundario.getPeso()[1]+"kg");
+        tvVariantSecMovSeries.setText("" + varMovSecundario.getRepsSerie()[0] + " - " + varMovSecundario.getRepsSerie()[1]+" serie");
+        tvVariantSecMovReps.setText("" + varMovSecundario.getRepsTotal()[0] + " - "
+                + varMovSecundario.getRepsTotal()[1]+ " ("+varMovSecundario.getRepsOptima()+") rep");
+
+        tvSquats.setText(sentadillas.getNombre());
+        tvSquatsKg.setText("" + sentadillas.getPeso()[0] + " - " + sentadillas.getPeso()[1]+"kg");
+        tvSquatsSeries.setText("" + sentadillas.getRepsSerie()[0] + " - " + sentadillas.getRepsSerie()[1]+" serie");
+        tvSquatsReps.setText("" + sentadillas.getRepsTotal()[0] + " - "
+                + sentadillas.getRepsTotal()[1]+ " ("+sentadillas.getRepsOptima()+") rep");
+
+
+        checkBox.setChecked(wod.isChek());
+        tvComent.setText (wod.getComentario());
+
+    }
+
+    public void grabar(){
+
+        wods.get(position).setComentario(tvComent.getText().toString());
+        wods.get(position).setChek(checkBox.isChecked());
+        persistencia.setWods(wods);
+
+    }
 }

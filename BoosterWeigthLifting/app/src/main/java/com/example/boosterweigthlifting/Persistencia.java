@@ -1,7 +1,5 @@
 package com.example.boosterweigthlifting;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class Persistencia {
@@ -9,7 +7,10 @@ public class Persistencia {
     private ArrayList<Wod> wods;
 
     public Persistencia() {
-        rellenarAuto();
+
+        if(wods == null){
+            rellenarAuto();
+        }
     }
 
     public ArrayList<Wod> getWods() {
@@ -32,9 +33,9 @@ public class Persistencia {
 
         Wod wod = new Wod(movPrincipal, pullMovPrincipal, varMovSecundario,
                 sentadillas);
-        wod.makeWod(3, 0);
+        wod.makeWod(1, 0);
         wods.add(wod);
-        Log.e("Relleno", "" + wods.get(0).getMovPrincipal().getNombre());
+
 
         movPrincipal = new Ejercicio("Clean Jerk", 110);
         pullMovPrincipal = new Ejercicio("Clean Pull", 110);
@@ -43,8 +44,10 @@ public class Persistencia {
         wod = new Wod(movPrincipal, pullMovPrincipal, varMovSecundario,
                 sentadillas);
         wod.makeWod(2, 0);
+        wod.setChek(true);
+        wod.setComentario("La sentadilla no puede completarla.\nDolor en lumbar");
         wods.add(wod);
-        Log.e("Relleno", "" + wods.get(1).getMovPrincipal().getNombre());
+
 
         movPrincipal = new Ejercicio("Clean +2 Jerk", 110);
         pullMovPrincipal = new Ejercicio("Clean Deadlift", 110);
@@ -52,10 +55,8 @@ public class Persistencia {
         sentadillas = new Ejercicio("Pause Back Squat", 140);
         wod = new Wod(movPrincipal, pullMovPrincipal, varMovSecundario,
                 sentadillas);
-        wod.makeWod(1, 0);
+        wod.makeWod(3, 0);
         wods.add(wod);
-        Log.e("Relleno", "" + wods.get(2).getMovPrincipal().getNombre());
-        Log.e("Relleno", "OK");
 
 
     }
