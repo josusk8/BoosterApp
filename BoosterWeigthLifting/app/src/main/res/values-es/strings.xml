@@ -47,6 +47,8 @@
     <string name="addNewRM">Añadir nuevo RM</string>
     <string name="note">Nota</string>
 
+    <string name="delete">Borrar</string>
+
     <string name="force">Fuerza</string>
     <string name="tecnical">Técnica</string>
     <string name="mode">Modo</string>

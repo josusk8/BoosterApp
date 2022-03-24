@@ -13,6 +13,10 @@ public class Ejercicio {
     public Ejercicio() {
     }
 
+    public Ejercicio(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Ejercicio(String nombre, float rm) {
         this.nombre = nombre;
         this.rm = rm;

@@ -1,16 +1,26 @@
 package com.example.boosterweigthlifting;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Persistencia {
 
     private ArrayList<Wod> wods;
+    private ArrayList<Rm> rms;
 
     public Persistencia() {
 
         if(wods == null){
             rellenarAuto();
         }
+    }
+
+    public ArrayList<Rm> getRms() {
+        return rms;
+    }
+
+    public void setRms(ArrayList<Rm> rms) {
+        this.rms = rms;
     }
 
     public ArrayList<Wod> getWods() {
@@ -22,9 +32,14 @@ public class Persistencia {
     }
 
     public void rellenarAuto() {
+        rellenarWODs();
+        rellenarRMs();
+    }
+
+    public void rellenarWODs(){
+
 
         wods = new ArrayList<Wod>();
-
 
         Ejercicio movPrincipal = new Ejercicio("Snatch", 85);
         Ejercicio pullMovPrincipal = new Ejercicio("Snatch Pull", 85);
@@ -57,6 +72,42 @@ public class Persistencia {
                 sentadillas);
         wod.makeWod(3, 0);
         wods.add(wod);
+    }
+
+    public void rellenarRMs(){
+
+        rms = new ArrayList<Rm>();
+
+        Ejercicio snatch = new Ejercicio("Snatch");
+        Ejercicio clean = new Ejercicio("Clean & Jerk");
+        Ejercicio squat = new Ejercicio("Back Squat");
+
+        Date fecha1 = new Date(1616584068000l);
+        Date fecha2 = new Date(1637752068000l);
+        Date fecha3 = new Date(1645700868000l);
+        Date fecha4 = new Date(1642251892000l);
+        Date fecha5 = new Date(1642770292000l);
+        Date fecha6 = new Date(1648127092000l);
+
+        rms.add(new Rm(snatch, 85f, fecha3));
+        rms.add(new Rm(snatch, 75f, fecha2));
+        rms.add(new Rm(snatch, 70f, fecha1));
+
+
+        rms.add(new Rm(clean, 135f, fecha6));
+        rms.add(new Rm(clean, 120f, fecha5));
+        rms.add(new Rm(clean, 102f, fecha4));
+        rms.add(new Rm(clean, 100f, fecha3));
+        rms.add(new Rm(clean, 85f, fecha2));
+        rms.add(new Rm(clean, 80f, fecha1));
+
+
+
+        rms.add(new Rm(squat, 155f, fecha6));
+        rms.add(new Rm(squat, 150f, fecha5));
+        rms.add(new Rm(squat, 145f, fecha3));
+        rms.add(new Rm(squat, 140f, fecha2));
+        rms.add(new Rm(squat, 130f, fecha1));
 
 
     }

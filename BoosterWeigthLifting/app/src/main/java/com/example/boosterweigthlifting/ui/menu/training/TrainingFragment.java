@@ -1,8 +1,6 @@
 package com.example.boosterweigthlifting.ui.menu.training;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,22 +9,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Spinner;
-import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.boosterweigthlifting.Ejercicio;
 import com.example.boosterweigthlifting.R;
-import com.example.boosterweigthlifting.Wod;
 
-import java.io.Console;
-import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -144,8 +132,7 @@ public class TrainingFragment extends Fragment {
         });
 
 
-        Switch switch1 = (Switch) view.findViewById(R.id.switch1);
-        TextView fuerzaTecnica = (TextView) view.findViewById(R.id.fuerzaTecnica);
+
 
 
         ArrayAdapter adapterA = new ArrayAdapter(requireContext(), R.layout.list_a, movimiento_principal);
@@ -210,16 +197,6 @@ public class TrainingFragment extends Fragment {
             }
         });
 
-        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if (isChecked) {
-                    fuerzaTecnica.setText(getString(R.string.tecnical));
-                } else {
-                    fuerzaTecnica.setText(getString(R.string.force));
-                }
-            }
-        });
 
 
         Button btnCalcular = (Button) view.findViewById(R.id.btnCalcular);
