@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Rm {
     private Ejercicio ejercicio;
+    //private String nombre;
     private Float peso;
     private Date fecha;
 
