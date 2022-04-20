@@ -35,7 +35,7 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="WOD 1 - S1 FUERZA"
+                    android:text="Connect..."
                     android:textColor="#FFFFFF"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -55,7 +55,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Snatch"
                     android:textColor="#FFFFFF"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -75,7 +74,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="59.5kg - 67.5Kg"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -88,7 +86,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -101,7 +98,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -121,7 +117,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Snatch Pull"
                     android:textColor="#FFFFFF"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -142,7 +137,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="59.5kg - 67.5Kg"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -155,7 +149,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -168,7 +161,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -188,7 +180,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Hang Power Snatch"
                     android:textColor="#FFFFFF"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -208,7 +199,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="59.5kg - 67.5Kg"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -221,7 +211,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -234,7 +223,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -254,7 +242,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Back Squat"
                     android:textColor="#FFFFFF"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -274,7 +261,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="100.5kg - 120.5Kg"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -287,7 +273,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />
@@ -300,7 +285,6 @@
                     android:background="@drawable/borde_tabla"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:text="3x3"
                     android:textColor="#FFFFFF"
                     android:textSize="12dp"
                     android:textStyle="bold" />

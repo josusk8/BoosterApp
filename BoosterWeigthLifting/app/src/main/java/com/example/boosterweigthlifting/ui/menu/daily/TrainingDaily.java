@@ -61,6 +61,7 @@ public class TrainingDaily extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @SuppressLint("ResourceType")
@@ -73,11 +74,14 @@ public class TrainingDaily extends Fragment {
 
         TrainingDailyActions tda = new TrainingDailyActions(view);
 
+
         ImageButton btnSiguiente = (ImageButton) view.findViewById(R.id.btnSiguiente);
         ImageButton btnAtras = (ImageButton) view.findViewById(R.id.btnAtras);
         ImageButton btnMake = (ImageButton) view.findViewById(R.id.btnMake);
 
-        tda.mostrarPrimero();
+
+        tda.getWods();
+
 
 
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +104,6 @@ public class TrainingDaily extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_trainingDaily_to_navigation_training);
             }
         });
-
-
 
 
         return view;

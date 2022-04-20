@@ -15,6 +15,7 @@ import com.example.boosterweigthlifting.R;
 import com.example.boosterweigthlifting.persistence.interfaces.ApiAdapter;
 import com.example.boosterweigthlifting.persistence.models.Wod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,11 +47,11 @@ public class Login extends AppCompatActivity {
 
         ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
 
-        Call<List<Wod>> call = apiAdapter.getAllWod();
+        Call<ArrayList<Wod>> call = apiAdapter.getAllWod();
 
-        call.enqueue(new Callback<List<Wod>>() {
+        call.enqueue(new Callback<ArrayList<Wod>>() {
             @Override
-            public void onResponse(Call<List<Wod>> call, Response<List<Wod>> response) {
+            public void onResponse(Call<ArrayList<Wod>> call, Response<ArrayList<Wod>> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText(getApplicationContext(),"Codigo: " + response.code(), Toast.LENGTH_LONG).show();
                     return;
@@ -65,7 +66,7 @@ public class Login extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Wod>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Wod>> call, Throwable t) {
                 Log.d("Estado", t.getMessage());
                 Toast.makeText(getApplicationContext(),"Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }

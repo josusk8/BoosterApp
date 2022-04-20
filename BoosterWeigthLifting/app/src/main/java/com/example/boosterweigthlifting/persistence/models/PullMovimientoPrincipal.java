@@ -1,7 +1,6 @@
 package com.example.boosterweigthlifting.persistence.models;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 
 public class PullMovimientoPrincipal implements Serializable {
@@ -10,14 +9,14 @@ public class PullMovimientoPrincipal implements Serializable {
 	private int idPullmovimientoprincipal;
 
 	private int idWod;
-	
+
 	private int idUsuario;
 
 	private String nombre;
 
-	private BigDecimal pesoMax;
+	private float pesoMax;
 
-	private BigDecimal pesoMin;
+	private float pesoMin;
 
 	private int pocentajeMin;
 
@@ -33,11 +32,9 @@ public class PullMovimientoPrincipal implements Serializable {
 
 	private int repsTotalMin;
 
-	private BigDecimal rm;
-
+	private float rm;
 
 	public PullMovimientoPrincipal() {
-
 	}
 
 	public int getIdPullmovimientoprincipal() {
@@ -72,19 +69,19 @@ public class PullMovimientoPrincipal implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public BigDecimal getPesoMax() {
+	public float getPesoMax() {
 		return pesoMax;
 	}
 
-	public void setPesoMax(BigDecimal pesoMax) {
+	public void setPesoMax(float pesoMax) {
 		this.pesoMax = pesoMax;
 	}
 
-	public BigDecimal getPesoMin() {
+	public float getPesoMin() {
 		return pesoMin;
 	}
 
-	public void setPesoMin(BigDecimal pesoMin) {
+	public void setPesoMin(float pesoMin) {
 		this.pesoMin = pesoMin;
 	}
 
@@ -144,11 +141,11 @@ public class PullMovimientoPrincipal implements Serializable {
 		this.repsTotalMin = repsTotalMin;
 	}
 
-	public BigDecimal getRm() {
+	public float getRm() {
 		return rm;
 	}
 
-	public void setRm(BigDecimal rm) {
+	public void setRm(float rm) {
 		this.rm = rm;
 	}
 }
