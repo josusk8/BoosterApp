@@ -34,6 +34,7 @@ public class PullMovimientoPrincipal implements Serializable {
 
 	private float rm;
 
+
 	public PullMovimientoPrincipal() {
 	}
 

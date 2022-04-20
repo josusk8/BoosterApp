@@ -186,7 +186,7 @@ public class TrainingDailyActions {
     public void getWods() {
 
         String url1 = "http://10.0.2.2:8080/booster/v1/";
-        String url2 = "http://192.168.31.249:8080/booster/v1/";
+        String url2 = "http://192.168.0.21:8080/booster/v1/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url2)
@@ -195,7 +195,7 @@ public class TrainingDailyActions {
 
         ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
 
-        Call<ArrayList<Wod>> call = apiAdapter.getByIdUser(1);
+        Call<ArrayList<Wod>> call = apiAdapter.getWodByIdUser(1);
 
         call.enqueue(new Callback<ArrayList<Wod>>() {
 
@@ -229,7 +229,7 @@ public class TrainingDailyActions {
 
 
         String url1 = "http://10.0.2.2:8080/booster/v1/";
-        String url2 = "http://192.168.31.249:8080/booster/v1/";
+        String url2 = "http://192.168.0.21:8080/booster/v1/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url2)
@@ -240,7 +240,6 @@ public class TrainingDailyActions {
 
         for (Wod wod: wods) {
             int idWod = wod.getIdWod();
-
 
             Call<ArrayList<MovimientoPrincipal>> call = apiAdapter.getMovimientoPrincipalByIdWod(idWod);
             call.enqueue(new Callback<ArrayList<MovimientoPrincipal>>() {
@@ -253,7 +252,6 @@ public class TrainingDailyActions {
                     ArrayList<MovimientoPrincipal> objectList = response.body();
                     wod.setMovimientoPrincipal(objectList.get(0));
 
-
                 }
 
                 @Override
@@ -262,7 +260,68 @@ public class TrainingDailyActions {
                 }
             });
 
-            
+
+            Call<ArrayList<PullMovimientoPrincipal>> call2 = apiAdapter.getPullMovimientoPrincipalByIdWod(idWod);
+            call2.enqueue(new Callback<ArrayList<PullMovimientoPrincipal>>() {
+                @Override
+                public void onResponse(Call<ArrayList<PullMovimientoPrincipal>> call, Response<ArrayList<PullMovimientoPrincipal>> response) {
+                    if (!response.isSuccessful()) {
+                        Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    ArrayList<PullMovimientoPrincipal> objectList = response.body();
+                   wod.setPullMovimientoPrincipal(objectList.get(0));
+
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<PullMovimientoPrincipal>> call, Throwable t) {
+
+                }
+            });
+
+            Call<ArrayList<VarMovimientoSecundario>> call3 = apiAdapter.getVarMovimientoSecundarioByIdWod(idWod);
+            call3.enqueue(new Callback<ArrayList<VarMovimientoSecundario>>() {
+                @Override
+                public void onResponse(Call<ArrayList<VarMovimientoSecundario>> call, Response<ArrayList<VarMovimientoSecundario>> response) {
+                    if (!response.isSuccessful()) {
+                        Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    ArrayList<VarMovimientoSecundario> objectList = response.body();
+                    wod.setVarMovimientoSecundario(objectList.get(0));
+
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<VarMovimientoSecundario>> call, Throwable t) {
+
+                }
+            });
+
+            Call<ArrayList<Squat>> call4 = apiAdapter.getSquatByIdWod(idWod);
+            call4.enqueue(new Callback<ArrayList<Squat>>() {
+                @Override
+                public void onResponse(Call<ArrayList<Squat>> call, Response<ArrayList<Squat>> response) {
+                    if (!response.isSuccessful()) {
+                        Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    ArrayList<Squat> objectList = response.body();
+                    wod.setSquat(objectList.get(0));
+
+                    mostrarPrimero();
+
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<Squat>> call, Throwable t) {
+
+                }
+            });
+
+
+
 
 
 

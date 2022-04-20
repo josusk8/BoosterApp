@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.boosterweigthlifting.Persistencia;
 import com.example.boosterweigthlifting.R;
-import com.example.boosterweigthlifting.Rm;
+import com.example.boosterweigthlifting.persistence.interfaces.ApiAdapter;
+import com.example.boosterweigthlifting.persistence.models.RmCleanJerk;
+import com.example.boosterweigthlifting.persistence.models.RmSnatch;
+import com.example.boosterweigthlifting.persistence.models.RmSquat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,53 +28,160 @@ import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.view.LineChartView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FragmentRMActions {
 
     private View view;
     LineChartView lineChartView;
-    Persistencia persistencia = new Persistencia();
-    ArrayList<Rm> rms = persistencia.getRms();
-    String[] fecha;
-    float[] peso;
+    String[] fecha = new String[0];
+    float[] peso = new float[0];
 
 
     public FragmentRMActions(View view) {
         this.view = view;
 
+    }
+
+    public void getPersistencia(int type) {
+
+        int idWod = 1;
+        String url1 = "http://10.0.2.2:8080/booster/v1/";
+        String url2 = "http://192.168.0.21:8080/booster/v1/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url2)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
+
+        switch (type) {
+            case 1:
+
+                Call<ArrayList<RmSnatch>> call = apiAdapter.getRmSnatchByIdWod(idWod);
+                call.enqueue(new Callback<ArrayList<RmSnatch>>() {
+
+                    @Override
+                    public void onResponse(Call<ArrayList<RmSnatch>> call, Response<ArrayList<RmSnatch>> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        ArrayList<RmSnatch> objectList = response.body();
+
+                        int cont = objectList.size();
+                        fecha = new String[cont];
+                        peso = new float[cont];
+
+                        for (int i = 0; i < objectList.size(); i++) {
+
+                            fecha[cont - 1] = objectList.get(i).getFecha();
+                            peso[cont - 1] = objectList.get(i).getPeso();
+                            cont--;
+                        }
+
+                        makeGrafica();
+                        makeTabla();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<RmSnatch>> call, Throwable t) {
+                        Log.d("Estado", t.getMessage());
+                        Toast.makeText(view.getContext(), "Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                });
+                break;
+
+            case 2:
+
+                Call<ArrayList<RmCleanJerk>> call2 = apiAdapter.getRmCleanJerkByIdWod(idWod);
+                call2.enqueue(new Callback<ArrayList<RmCleanJerk>>() {
+
+                    @Override
+                    public void onResponse(Call<ArrayList<RmCleanJerk>> call, Response<ArrayList<RmCleanJerk>> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        ArrayList<RmCleanJerk> objectList = response.body();
+
+                        int cont = objectList.size();
+                        fecha = new String[cont];
+                        peso = new float[cont];
+
+                        for (int i = 0; i < objectList.size(); i++) {
+
+                            fecha[cont - 1] = objectList.get(i).getFecha();
+                            peso[cont - 1] = objectList.get(i).getPeso();
+                            cont--;
+                        }
+
+                        makeGrafica();
+                        makeTabla();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<RmCleanJerk>> call, Throwable t) {
+                        Log.d("Estado", t.getMessage());
+                        Toast.makeText(view.getContext(), "Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                });
+                break;
+
+            case 3:
+
+                Call<ArrayList<RmSquat>> call3 = apiAdapter.getRmSquatByIdWod(idWod);
+                call3.enqueue(new Callback<ArrayList<RmSquat>>() {
+
+                    @Override
+                    public void onResponse(Call<ArrayList<RmSquat>> call, Response<ArrayList<RmSquat>> response) {
+                        if (!response.isSuccessful()) {
+                            Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        ArrayList<RmSquat> objectList = response.body();
+
+                        int cont = objectList.size();
+                        fecha = new String[cont];
+                        peso = new float[cont];
+
+                        for (int i = 0; i < objectList.size(); i++) {
+
+                            fecha[cont - 1] = objectList.get(i).getFecha();
+                            peso[cont - 1] = objectList.get(i).getPeso();
+                            cont--;
+                        }
+
+                        makeGrafica();
+                        makeTabla();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<RmSquat>> call, Throwable t) {
+                        Log.d("Estado", t.getMessage());
+                        Toast.makeText(view.getContext(), "Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+                break;
+        }
 
     }
 
-    public void getPersistencia(String name) {
-
-        int cont = 0;
-
-        for (int i = 0; i < rms.size(); i++) {
-            if (rms.get(i).getEjercicio().getNombre() == name) {
-                cont++;
-                Log.d("hola", "hola" + cont);
-
-            }
-        }
-        fecha = new String[cont];
-        peso = new float[cont];
-
-        for (int i = 0; i < rms.size(); i++) {
-            if (rms.get(i).getEjercicio().getNombre() == name) {
-                fecha[cont - 1] = rms.get(i).getFecha().getDay() + "-"
-                        + rms.get(i).getFecha().getMonth() + "-" + rms.get(i).getFecha().getYear();
-                peso[cont - 1] = rms.get(i).getPeso();
-                cont--;
-
-            }
-
-
-        }
-    }
-
-    public void makeGrafica(String name) {
-
-        getPersistencia(name);
+    public void makeGrafica() {
 
         lineChartView = view.findViewById(R.id.chart);
 
@@ -123,9 +233,7 @@ public class FragmentRMActions {
     }
 
     @SuppressLint("ResourceAsColor")
-    public void makeTabla(String name) {
-
-        getPersistencia(name);
+    public void makeTabla() {
 
         TableLayout tl = (TableLayout) view.findViewById(R.id.tableLayoutRM);
         TableRow.LayoutParams params = new TableRow.LayoutParams();
@@ -143,7 +251,6 @@ public class FragmentRMActions {
             Button btnBorrar = new Button((view.getContext()));
             btnBorrar.setText(R.string.delete);
             //btnBorrar.setTextColor(Color.WHITE);
-
 
 
             tv2.setText(String.valueOf(peso[i]));

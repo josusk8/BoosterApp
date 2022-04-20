@@ -86,11 +86,13 @@ public class RmSelectedFragment extends Fragment {
         Bundle bundle = new Bundle();
 
 
+
         tvSnatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 bundle.putString("name", "Snatch");
+                bundle.putInt("type", 1);
                 Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_fragmentRM, bundle);
 
 
@@ -102,6 +104,8 @@ public class RmSelectedFragment extends Fragment {
             public void onClick(View view) {
 
                 bundle.putString("name", "Clean & Jerk");
+                bundle.putInt("type", 2);
+
                 Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_fragmentRM, bundle);
 
 
@@ -113,6 +117,7 @@ public class RmSelectedFragment extends Fragment {
             public void onClick(View view) {
 
                 bundle.putString("name", "Back Squat");
+                bundle.putInt("type", 3);
                 Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_fragmentRM, bundle);
 
             }

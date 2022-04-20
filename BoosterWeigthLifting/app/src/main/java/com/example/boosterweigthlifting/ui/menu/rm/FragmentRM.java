@@ -43,6 +43,7 @@ public class FragmentRM extends Fragment {
     ArrayList<Rm> rms = persistencia.getRms();
 
     String name;
+    int type;
 
 
 
@@ -79,7 +80,7 @@ public class FragmentRM extends Fragment {
         }
 
         name = getArguments().getString("name").toString();
-
+        type = getArguments().getInt("type");
 
 
 
@@ -97,15 +98,14 @@ public class FragmentRM extends Fragment {
 
 
         FragmentRMActions fragmentRMActions = new FragmentRMActions(view);
-        fragmentRMActions.makeGrafica(name);
-        fragmentRMActions.makeTabla(name);
+        fragmentRMActions.getPersistencia(type);
 
-
-
+        
         ImageButton btnInfo = (ImageButton) view.findViewById(R.id.btnInfo);
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
             String url;
+
             @Override
             public void onClick(View view) {
 
