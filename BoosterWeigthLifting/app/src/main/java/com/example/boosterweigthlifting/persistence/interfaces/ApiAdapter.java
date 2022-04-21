@@ -9,7 +9,6 @@ import com.example.boosterweigthlifting.persistence.models.Squat;
 import com.example.boosterweigthlifting.persistence.models.Usuario;
 import com.example.boosterweigthlifting.persistence.models.VarMovimientoSecundario;
 import com.example.boosterweigthlifting.persistence.models.Wod;
-import com.example.boosterweigthlifting.persistence.models.WodDao;
 
 import java.util.ArrayList;
 
@@ -34,10 +33,10 @@ public interface ApiAdapter {
     @GET("mov/pullprincipal/{idWod}")
     Call<ArrayList<PullMovimientoPrincipal>> getPullMovimientoPrincipalByIdWod(@Path("idWod") int idWod);
 
-    @GET("mov/varsecunadario")
+    @GET("mov/varsecundario")
     Call<ArrayList<VarMovimientoSecundario>> getAllMovimientoSecundario();
 
-    @GET("mov/varsecunadario/{idWod}")
+    @GET("mov/varsecundario/{idWod}")
     Call<ArrayList<VarMovimientoSecundario>> getVarMovimientoSecundarioByIdWod(@Path("idWod") int idWod);
 
     @GET("mov/squat")
@@ -77,7 +76,7 @@ public interface ApiAdapter {
     Call<ArrayList<RmCleanJerk>> getRmCleanJerkByIdWod(@Path("idWod") int idWod);
 
     @POST("wod")
-    Call<WodDao> setWod(@Body WodDao wod);
+    Call<Wod> setWod(@Body Wod wod);
 
 
 

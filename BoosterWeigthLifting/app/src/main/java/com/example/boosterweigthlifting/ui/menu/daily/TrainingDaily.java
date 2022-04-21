@@ -98,7 +98,6 @@ public class TrainingDaily extends Fragment {
         btnMake.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                tda.grabar();
                 Navigation.findNavController(view).navigate(R.id.action_trainingDaily_to_navigation_training);
             }
         });

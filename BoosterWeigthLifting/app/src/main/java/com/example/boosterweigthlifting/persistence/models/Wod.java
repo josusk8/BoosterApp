@@ -7,8 +7,10 @@ public class Wod {
     private int idWod;
     private int dia;
     private String fecha;
+    private String comentario = "";
     private int semana;
     private int idUsuario;
+    private int check = 0;
 
     private MovimientoPrincipal movimientoPrincipal;
     private PullMovimientoPrincipal pullMovimientoPrincipal;
@@ -34,6 +36,22 @@ public class Wod {
 
     public int getIdUsuario() {
         return idUsuario;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public int getCheck() {
+        return check;
+    }
+
+    public void setCheck(int check) {
+        this.check = check;
     }
 
     public void setIdUsuario(int idUsuario) {
