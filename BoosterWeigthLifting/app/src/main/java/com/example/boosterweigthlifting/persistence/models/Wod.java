@@ -3,10 +3,12 @@ package com.example.boosterweigthlifting.persistence.models;
 
 public class Wod {
 
+
     private int idWod;
     private int dia;
     private String fecha;
     private int semana;
+    private int idUsuario;
 
     private MovimientoPrincipal movimientoPrincipal;
     private PullMovimientoPrincipal pullMovimientoPrincipal;
@@ -28,6 +30,14 @@ public class Wod {
 
     public void setIdWod(int idWod) {
         this.idWod = idWod;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public int getDia() {

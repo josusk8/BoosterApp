@@ -9,11 +9,14 @@ import com.example.boosterweigthlifting.persistence.models.Squat;
 import com.example.boosterweigthlifting.persistence.models.Usuario;
 import com.example.boosterweigthlifting.persistence.models.VarMovimientoSecundario;
 import com.example.boosterweigthlifting.persistence.models.Wod;
+import com.example.boosterweigthlifting.persistence.models.WodDao;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ApiAdapter {
@@ -72,5 +75,11 @@ public interface ApiAdapter {
 
     @GET("rm/cleanjerk/{idWod}")
     Call<ArrayList<RmCleanJerk>> getRmCleanJerkByIdWod(@Path("idWod") int idWod);
+
+    @POST("wod")
+    Call<WodDao> setWod(@Body WodDao wod);
+
+
+
 
 }

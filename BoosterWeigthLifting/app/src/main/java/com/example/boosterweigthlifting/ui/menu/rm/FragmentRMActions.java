@@ -60,8 +60,8 @@ public class FragmentRMActions {
         ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
 
         switch (type) {
-            case 1:
 
+            case 1:
                 Call<ArrayList<RmSnatch>> call = apiAdapter.getRmSnatchByIdWod(idWod);
                 call.enqueue(new Callback<ArrayList<RmSnatch>>() {
 
@@ -72,22 +72,23 @@ public class FragmentRMActions {
                             return;
                         }
 
-                        ArrayList<RmSnatch> objectList = response.body();
+                        try {
+                            ArrayList<RmSnatch> objectList = response.body();
+                            int cont = objectList.size();
+                            fecha = new String[cont];
+                            peso = new float[cont];
+                            for (int i = 0; i < objectList.size(); i++) {
 
-                        int cont = objectList.size();
-                        fecha = new String[cont];
-                        peso = new float[cont];
+                                fecha[cont - 1] = objectList.get(i).getFecha();
+                                peso[cont - 1] = objectList.get(i).getPeso();
+                                cont--;
+                            }
 
-                        for (int i = 0; i < objectList.size(); i++) {
-
-                            fecha[cont - 1] = objectList.get(i).getFecha();
-                            peso[cont - 1] = objectList.get(i).getPeso();
-                            cont--;
+                            makeGrafica();
+                            makeTabla();
+                        } catch (Exception e) {
+                            Log.e("Exception: ", e.getMessage());
                         }
-
-                        makeGrafica();
-                        makeTabla();
-
                     }
 
                     @Override
@@ -100,7 +101,6 @@ public class FragmentRMActions {
                 break;
 
             case 2:
-
                 Call<ArrayList<RmCleanJerk>> call2 = apiAdapter.getRmCleanJerkByIdWod(idWod);
                 call2.enqueue(new Callback<ArrayList<RmCleanJerk>>() {
 
@@ -111,22 +111,22 @@ public class FragmentRMActions {
                             return;
                         }
 
-                        ArrayList<RmCleanJerk> objectList = response.body();
+                        try {
+                            ArrayList<RmCleanJerk> objectList = response.body();
+                            int cont = objectList.size();
+                            fecha = new String[cont];
+                            peso = new float[cont];
+                            for (int i = 0; i < objectList.size(); i++) {
+                                fecha[cont - 1] = objectList.get(i).getFecha();
+                                peso[cont - 1] = objectList.get(i).getPeso();
+                                cont--;
+                            }
 
-                        int cont = objectList.size();
-                        fecha = new String[cont];
-                        peso = new float[cont];
-
-                        for (int i = 0; i < objectList.size(); i++) {
-
-                            fecha[cont - 1] = objectList.get(i).getFecha();
-                            peso[cont - 1] = objectList.get(i).getPeso();
-                            cont--;
+                            makeGrafica();
+                            makeTabla();
+                        } catch (Exception e) {
+                            Log.e("Exception: ", e.getMessage());
                         }
-
-                        makeGrafica();
-                        makeTabla();
-
                     }
 
                     @Override
@@ -139,7 +139,6 @@ public class FragmentRMActions {
                 break;
 
             case 3:
-
                 Call<ArrayList<RmSquat>> call3 = apiAdapter.getRmSquatByIdWod(idWod);
                 call3.enqueue(new Callback<ArrayList<RmSquat>>() {
 
@@ -150,22 +149,24 @@ public class FragmentRMActions {
                             return;
                         }
 
-                        ArrayList<RmSquat> objectList = response.body();
+                        try {
+                            ArrayList<RmSquat> objectList = response.body();
+                            int cont = objectList.size();
+                            fecha = new String[cont];
+                            peso = new float[cont];
 
-                        int cont = objectList.size();
-                        fecha = new String[cont];
-                        peso = new float[cont];
+                            for (int i = 0; i < objectList.size(); i++) {
+                                fecha[cont - 1] = objectList.get(i).getFecha();
+                                peso[cont - 1] = objectList.get(i).getPeso();
+                                cont--;
+                            }
 
-                        for (int i = 0; i < objectList.size(); i++) {
+                            makeGrafica();
+                            makeTabla();
 
-                            fecha[cont - 1] = objectList.get(i).getFecha();
-                            peso[cont - 1] = objectList.get(i).getPeso();
-                            cont--;
+                        } catch (Exception e) {
+                            Log.e("Exception: ", e.getMessage());
                         }
-
-                        makeGrafica();
-                        makeTabla();
-
                     }
 
                     @Override
@@ -175,9 +176,10 @@ public class FragmentRMActions {
 
                     }
                 });
-
                 break;
+
         }
+
 
     }
 

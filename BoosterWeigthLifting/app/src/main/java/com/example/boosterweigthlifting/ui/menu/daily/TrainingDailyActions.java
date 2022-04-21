@@ -13,6 +13,7 @@ import com.example.boosterweigthlifting.persistence.models.PullMovimientoPrincip
 import com.example.boosterweigthlifting.persistence.models.Squat;
 import com.example.boosterweigthlifting.persistence.models.VarMovimientoSecundario;
 import com.example.boosterweigthlifting.persistence.models.Wod;
+import com.example.boosterweigthlifting.persistence.models.WodDao;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TrainingDailyActions {
     View view;
+    String url1 = "http://10.0.2.2:8080/booster/v1/";
+    String url2 = "http://192.168.31.249:8080/booster/v1/";
 
     ArrayList<Wod> wods = new ArrayList<>();
     int position;
@@ -39,8 +42,11 @@ public class TrainingDailyActions {
     public TrainingDailyActions(View view) {
         this.view = view;
 
-        wods = new ArrayList<Wod>(0);
+
+        wods = new ArrayList<Wod>();
         getWods();
+
+
 
         tvTittle = (TextView) view.findViewById(R.id.tvTittle);
 
@@ -67,6 +73,44 @@ public class TrainingDailyActions {
         tvComent = (TextView) view.findViewById(R.id.tvComment);
         checkBox = (CheckBox) view.findViewById(R.id.checkBox);
 
+
+
+        /////////////////////
+        WodDao wod = new WodDao();
+        wod.setIdUsuario(2);
+        wod.setDia(4);
+        wod.setFecha("2022-04-08");
+        wod.setSemana(2);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url2)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
+
+        Call<WodDao> call = apiAdapter.setWod(wod);
+        call.enqueue(new Callback<WodDao>() {
+            @Override
+            public void onResponse(Call<WodDao> call, Response<WodDao> response) {
+
+                if(!response.isSuccessful()){
+
+                }else{
+                    WodDao body = response.body();
+                    Log.d("Idwod", body.getIdWod() +"");
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<WodDao> call, Throwable t) {
+                Log.d("Idwod", "fallo");
+            }
+        });
+
+        /////////////////////////////
 
     }
 
@@ -158,7 +202,7 @@ public class TrainingDailyActions {
                 + pullMovPrincipal.getRepsTotalMax() + " (" + pullMovPrincipal.getRepsOptima() + ") rep");
 
         tvVariantSecMov.setText(varMovSecundario.getNombre());
-        tvVariantSecMovKg.setText("" + varMovSecundario.getPesoMin() + " - " + varMovSecundario.getPesoMax()+ "kg");
+        tvVariantSecMovKg.setText("" + varMovSecundario.getPesoMin() + " - " + varMovSecundario.getPesoMax() + "kg");
         tvVariantSecMovSeries.setText("" + varMovSecundario.getSerieMin() + " - " + varMovSecundario.getSerieMax() + " serie");
         tvVariantSecMovReps.setText("" + varMovSecundario.getRepsTotalMin() + " - "
                 + varMovSecundario.getRepsTotalMax() + " (" + varMovSecundario.getRepsOptima() + ") rep");
@@ -185,8 +229,6 @@ public class TrainingDailyActions {
 
     public void getWods() {
 
-        String url1 = "http://10.0.2.2:8080/booster/v1/";
-        String url2 = "http://192.168.0.21:8080/booster/v1/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url2)
@@ -220,16 +262,14 @@ public class TrainingDailyActions {
 
             }
 
-
         });
+
+
 
     }
 
-    public void rellenarWods(){
+    public void rellenarWods() {
 
-
-        String url1 = "http://10.0.2.2:8080/booster/v1/";
-        String url2 = "http://192.168.0.21:8080/booster/v1/";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url2)
@@ -238,7 +278,7 @@ public class TrainingDailyActions {
 
         ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
 
-        for (Wod wod: wods) {
+        for (Wod wod : wods) {
             int idWod = wod.getIdWod();
 
             Call<ArrayList<MovimientoPrincipal>> call = apiAdapter.getMovimientoPrincipalByIdWod(idWod);
@@ -249,9 +289,13 @@ public class TrainingDailyActions {
                         Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
                         return;
                     }
-                    ArrayList<MovimientoPrincipal> objectList = response.body();
-                    wod.setMovimientoPrincipal(objectList.get(0));
 
+                    try {
+                        ArrayList<MovimientoPrincipal> objectList = response.body();
+                        wod.setMovimientoPrincipal(objectList.get(0));
+                    } catch (Exception e) {
+                        Log.e("Exception: ", e.getMessage());
+                    }
                 }
 
                 @Override
@@ -269,8 +313,13 @@ public class TrainingDailyActions {
                         Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
                         return;
                     }
-                    ArrayList<PullMovimientoPrincipal> objectList = response.body();
-                   wod.setPullMovimientoPrincipal(objectList.get(0));
+
+                    try {
+                        ArrayList<PullMovimientoPrincipal> objectList = response.body();
+                        wod.setPullMovimientoPrincipal(objectList.get(0));
+                    } catch (Exception e) {
+                        Log.e("Exception: ", e.getMessage());
+                    }
 
                 }
 
@@ -288,9 +337,13 @@ public class TrainingDailyActions {
                         Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
                         return;
                     }
-                    ArrayList<VarMovimientoSecundario> objectList = response.body();
-                    wod.setVarMovimientoSecundario(objectList.get(0));
 
+                    try {
+                        ArrayList<VarMovimientoSecundario> objectList = response.body();
+                        wod.setVarMovimientoSecundario(objectList.get(0));
+                    } catch (Exception e) {
+                        Log.e("Exception: ", e.getMessage());
+                    }
                 }
 
                 @Override
@@ -307,8 +360,12 @@ public class TrainingDailyActions {
                         Toast.makeText(view.getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
                         return;
                     }
-                    ArrayList<Squat> objectList = response.body();
-                    wod.setSquat(objectList.get(0));
+                    try {
+                        ArrayList<Squat> objectList = response.body();
+                        wod.setSquat(objectList.get(0));
+                    } catch (Exception e) {
+                        Log.e("Exception: ", e.getMessage());
+                    }
 
                     mostrarPrimero();
 
@@ -319,11 +376,6 @@ public class TrainingDailyActions {
 
                 }
             });
-
-
-
-
-
 
 
         }

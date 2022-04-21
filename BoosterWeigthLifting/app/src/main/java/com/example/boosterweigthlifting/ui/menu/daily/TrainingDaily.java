@@ -74,11 +74,9 @@ public class TrainingDaily extends Fragment {
 
         TrainingDailyActions tda = new TrainingDailyActions(view);
 
-
         ImageButton btnSiguiente = (ImageButton) view.findViewById(R.id.btnSiguiente);
         ImageButton btnAtras = (ImageButton) view.findViewById(R.id.btnAtras);
         ImageButton btnMake = (ImageButton) view.findViewById(R.id.btnMake);
-
 
         tda.getWods();
 

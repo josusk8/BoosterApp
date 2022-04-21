@@ -10,12 +10,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.boosterweigthlifting.Persistencia;
 import com.example.boosterweigthlifting.R;
-import com.example.boosterweigthlifting.Rm;
 import com.example.boosterweigthlifting.ui.popup.InfoActivity;
-
-import java.util.ArrayList;
 
 import lecho.lib.hellocharts.view.LineChartView;
 
@@ -39,8 +35,8 @@ public class FragmentRM extends Fragment {
 
 
     LineChartView lineChartView;
-    Persistencia persistencia = new Persistencia();
-    ArrayList<Rm> rms = persistencia.getRms();
+    //Persistencia persistencia = new Persistencia();
+    //ArrayList<Rm> rms = persistencia.getRms();
 
     String name;
     int type;
@@ -100,7 +96,7 @@ public class FragmentRM extends Fragment {
         FragmentRMActions fragmentRMActions = new FragmentRMActions(view);
         fragmentRMActions.getPersistencia(type);
 
-        
+
         ImageButton btnInfo = (ImageButton) view.findViewById(R.id.btnInfo);
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
