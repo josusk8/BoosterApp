@@ -17,6 +17,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiAdapter {
 
@@ -52,10 +53,11 @@ public interface ApiAdapter {
     Call<ArrayList<Wod>> getWodByIdUser(@Path("idUser") int user);
 
     @GET("usuario")
-    Call<ArrayList<Usuario>> getAllUsuario();
+    Call<ArrayList<Usuario>> getUsuarioByEmailAndPass
+            (@Query("email") String email, @Query("pass") String pass);
 
     @GET("usuario/{idUser}")
-    Call<ArrayList<Usuario>> getByIdUsuario(@Path("idUser") int user);
+    Call<Usuario> getUsuarioById(@Path("idUser") int user);
 
     @GET("rm/squat")
     Call<ArrayList<RmSquat>> getAllRmSquat();
@@ -77,6 +79,13 @@ public interface ApiAdapter {
 
     @POST("wod")
     Call<Wod> setWod(@Body Wod wod);
+
+    @POST("wod")
+    Call<ArrayList<Wod>> setAllWod(@Body ArrayList<Wod> wod);
+
+    @POST("usuario")
+    Call<Usuario> setUsuario(@Body Usuario usuario);
+
 
 
 

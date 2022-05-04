@@ -25,11 +25,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class TrainingDailyActions {
     View view;
     //String url = "http://10.0.2.2:8080/booster/v1/";
-    //String url = "http://192.168.31.249:8080/booster/v1/";
-    String url = "http://192.168.0.21:8080/booster/v1/";
+    String url = "http://192.168.31.249:8080/booster/v1/";
+     //String url = "http://192.168.0.21:8080/booster/v1/";
+    //String url = "http://192.168.31.112:8080/booster/v1/";
 
     ArrayList<Wod> wods = new ArrayList<>();
     int position;
+    int  idWod = 0;
+    Wod actualWod;
+
     TextView tvTittle;
     TextView tvFirstMov, tvFirstMovKg, tvFirstMovSeries, tvFirstMovReps;
     TextView tvPullFirtsMov, tvPullFirstMovKg, tvPullFirstMovSeries, tvPullFirstMovReps;
@@ -42,13 +46,11 @@ public class TrainingDailyActions {
     public TrainingDailyActions(View view) {
         this.view = view;
 
-
+        actualWod = new Wod();
         wods = new ArrayList<Wod>();
         getWods();
 
-
         tvTittle = (TextView) view.findViewById(R.id.tvTittle);
-
         tvFirstMov = (TextView) view.findViewById(R.id.tvFirstMov);
         tvFirstMovKg = (TextView) view.findViewById(R.id.tvFirstMovKg);
         tvFirstMovSeries = (TextView) view.findViewById(R.id.tvFirstMovSeries);
@@ -73,47 +75,6 @@ public class TrainingDailyActions {
         checkBox = (CheckBox) view.findViewById(R.id.checkBox);
 
 
-        /////////////////////
-        /*
-        Wod wod = new Wod();
-        wod.setIdWod(18);
-        wod.setIdUsuario(2);
-        wod.setDia(4);
-        wod.setFecha("2021-05-08");
-        wod.setSemana(7);
-        wod.setComentario("HOLAAAA");
-        wod.setCheck(1);
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
-
-        Call<Wod> call = apiAdapter.setWod(wod);
-        call.enqueue(new Callback<Wod>() {
-            @Override
-            public void onResponse(Call<Wod> call, Response<Wod> response) {
-
-                if(!response.isSuccessful()){
-
-                }else{
-                    Wod body = response.body();
-                    Log.d("Idwod", body.getIdWod() +"");
-
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<Wod> call, Throwable t) {
-                Log.d("Idwod", "fallo");
-            }
-        });
-
-        /////////////////////////////
-*/
     }
 
     public void mostrarPrimero() {
@@ -131,8 +92,6 @@ public class TrainingDailyActions {
 
     public void mostrarSiguiente() {
 
-      // Log.d("mostrarS", "tamaño " + wods.size());
-
         if (wods.size() == 0) {
 
         } else {
@@ -149,6 +108,7 @@ public class TrainingDailyActions {
                 Wod wod = wods.get(position);
                 rellenarCampos(wod);
                 grabar(wod);
+
 
             }
 
@@ -171,6 +131,7 @@ public class TrainingDailyActions {
                 position--;
                 Wod wod = wods.get(position);
                 rellenarCampos(wod);
+                grabar(wod);
             }
 
         }
@@ -179,6 +140,8 @@ public class TrainingDailyActions {
     }
 
     public void rellenarCampos(Wod wod) {
+
+        actualWod = wod;
 
         MovimientoPrincipal movPrincipal = wod.getMovimientoPrincipal();
         PullMovimientoPrincipal pullMovPrincipal = wod.getPullMovimientoPrincipal();
@@ -223,7 +186,12 @@ public class TrainingDailyActions {
 
     public void grabar(Wod wod) {
 
-
+        actualWod.setComentario(tvComent.getText().toString());
+        if(checkBox.isChecked()){
+            actualWod.setCheck(1);
+        }else{
+            actualWod.setCheck(0);
+        }
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
@@ -232,24 +200,23 @@ public class TrainingDailyActions {
 
         ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
 
-        Call<Wod> call = apiAdapter.setWod(wod);
-        call.enqueue(new Callback<Wod>() {
+        Call<Wod> call = apiAdapter.setWod(actualWod);
+        call.enqueue(new Callback<Wod> () {
             @Override
-            public void onResponse(Call<Wod> call, Response<Wod> response) {
+            public void onResponse(Call<Wod>  call, Response<Wod>  response) {
 
                 if(!response.isSuccessful()){
 
                 }else{
-                    Wod body = response.body();
-                    Log.d("Idwod", body.getIdWod() +"");
-
+                    /*Wod body = response.body();
+                    actualWod = body;*/
                 }
 
             }
 
             @Override
-            public void onFailure(Call<Wod> call, Throwable t) {
-                Log.d("Idwod", "fallo");
+            public void onFailure(Call<Wod>  call, Throwable t) {
+                Log.d("actualWodGrabar", "fallo");
             }
         });
 
@@ -257,7 +224,6 @@ public class TrainingDailyActions {
     }
 
     public void getWods() {
-
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)

@@ -2,7 +2,6 @@ package com.example.boosterweigthlifting.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.boosterweigthlifting.MainActivity;
 import com.example.boosterweigthlifting.R;
 import com.example.boosterweigthlifting.persistence.interfaces.ApiAdapter;
-import com.example.boosterweigthlifting.persistence.models.Wod;
+import com.example.boosterweigthlifting.persistence.models.Usuario;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +27,11 @@ public class Login extends AppCompatActivity {
 
     Button btnLogin;
     TextView tvRegister;
+    TextInputEditText etEmail;
+    TextInputEditText etPassword;
+    String password = "";
+    String email = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,47 +40,16 @@ public class Login extends AppCompatActivity {
 
         btnLogin = (Button) findViewById(R.id.btnLogin);
         tvRegister = (TextView) findViewById(R.id.tvRegister);
+        etEmail = (TextInputEditText) findViewById(R.id.etEmail);
+        etPassword = (TextInputEditText) findViewById(R.id.etPassword);
 
-        String url1 = "http://10.0.2.2:8080/booster/v1/";
-        String url2 = "http://192.168.31.249:8080/booster/v1/";
-
-        Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl(url2)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
-
-        Call<ArrayList<Wod>> call = apiAdapter.getAllWod();
-
-        call.enqueue(new Callback<ArrayList<Wod>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Wod>> call, Response<ArrayList<Wod>> response) {
-                if (!response.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(),"Codigo: " + response.code(), Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                List<Wod> objectList = response.body();
-
-                Log.d("Estado2", objectList.get(0).getDia()+"");
-                btnLogin.setText(objectList.get(0).getFecha()+"");
-
-
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Wod>> call, Throwable t) {
-                Log.d("Estado", t.getMessage());
-                Toast.makeText(getApplicationContext(),"Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(mainActivity);
+                password = etPassword.getText().toString();
+                email = etEmail.getText().toString();
+                connect();
             }
         });
 
@@ -88,6 +61,65 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void startApp() {
+        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(mainActivity);
+    }
+
+    private void connect() {
+
+        //String url1 = "http://10.0.2.2:8080/booster/v1/";
+        String url = "http://192.168.31.249:8080/booster/v1/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
+        Call<ArrayList<Usuario>> call = apiAdapter.getUsuarioByEmailAndPass(email, password);
+
+        call.enqueue(new Callback<ArrayList<Usuario>>() {
+                         Usuario usuario = new Usuario();
+
+                         @Override
+                         public void onResponse(Call<ArrayList<Usuario>> call, Response<ArrayList<Usuario>> response) {
+                             //Toast.makeText(getApplicationContext(), "Login: " + response.code(), Toast.LENGTH_SHORT).show();
+
+                             for (int i = 0; i < response.body().size(); i++) {
+                                 String emailCompare = "";
+                                 emailCompare = response.body().get(i).getEmail();
+
+                                 if (email.contains(emailCompare)) {
+                                     usuario = response.body().get(i);
+                                 }
+                             }
+
+                             if (usuario.getNombre() == null) {
+                                 Toast.makeText(getApplicationContext(), "Usuario incorrecto", Toast.LENGTH_SHORT).show();
+
+                             } else {
+
+                                 if (usuario.getPass().toString().equals(password.toString())) {
+                                     startApp();
+                                 } else {
+                                     Toast.makeText(getApplicationContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                                 }
+
+                             }
+
+                             return;
+                         }
+
+                         @Override
+                         public void onFailure(Call<ArrayList<Usuario>> call, Throwable t) {
+                             Toast.makeText(getApplicationContext(), "Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                         }
+                     }
+        );
 
     }
 }

@@ -50,11 +50,13 @@ public class FragmentRMActions {
     public void getPersistencia(int type) {
 
         int idWod = 1;
-        String url1 = "http://10.0.2.2:8080/booster/v1/";
-        String url2 = "http://192.168.0.21:8080/booster/v1/";
+        //String url1 = "http://10.0.2.2:8080/booster/v1/";
+        // String url = "http://192.168.0.21:8080/booster/v1/";
+        //String url2 = "http://192.168.31.112:8080/booster/v1/";
+        String url = "http://192.168.31.249:8080/booster/v1/";
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url2)
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
