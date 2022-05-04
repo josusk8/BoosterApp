@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -32,15 +33,13 @@ public class FragmentRM extends Fragment {
     private String mParam2;
 
 
-
-
     LineChartView lineChartView;
     //Persistencia persistencia = new Persistencia();
     //ArrayList<Rm> rms = persistencia.getRms();
 
     String name;
     int type;
-
+    EditText etDate;
 
 
     public FragmentRM() {
@@ -77,8 +76,6 @@ public class FragmentRM extends Fragment {
 
         name = getArguments().getString("name").toString();
         type = getArguments().getInt("type");
-
-
 
 
     }

@@ -17,6 +17,7 @@ import com.example.boosterweigthlifting.persistence.interfaces.ApiAdapter;
 import com.example.boosterweigthlifting.persistence.models.RmCleanJerk;
 import com.example.boosterweigthlifting.persistence.models.RmSnatch;
 import com.example.boosterweigthlifting.persistence.models.RmSquat;
+import com.example.boosterweigthlifting.persistence.utils.Globals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,14 +50,10 @@ public class FragmentRMActions {
 
     public void getPersistencia(int type) {
 
-        int idWod = 1;
-        //String url1 = "http://10.0.2.2:8080/booster/v1/";
-        // String url = "http://192.168.0.21:8080/booster/v1/";
-        //String url2 = "http://192.168.31.112:8080/booster/v1/";
-        String url = "http://192.168.31.249:8080/booster/v1/";
+        int idUser = Globals.idUsuario;
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Globals.url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
@@ -64,7 +61,7 @@ public class FragmentRMActions {
         switch (type) {
 
             case 1:
-                Call<ArrayList<RmSnatch>> call = apiAdapter.getRmSnatchByIdWod(idWod);
+                Call<ArrayList<RmSnatch>> call = apiAdapter.getRmSnatchByIdUser(idUser);
                 call.enqueue(new Callback<ArrayList<RmSnatch>>() {
 
                     @Override
@@ -88,6 +85,13 @@ public class FragmentRMActions {
 
                             makeGrafica();
                             makeTabla();
+
+                            for (Float max : peso) {
+                                if (max > Globals.lastRmSnatch) {
+                                    Globals.lastRmSnatch = max;
+                                }
+                            }
+
                         } catch (Exception e) {
                             Log.e("Exception: ", e.getMessage());
                         }
@@ -103,7 +107,7 @@ public class FragmentRMActions {
                 break;
 
             case 2:
-                Call<ArrayList<RmCleanJerk>> call2 = apiAdapter.getRmCleanJerkByIdWod(idWod);
+                Call<ArrayList<RmCleanJerk>> call2 = apiAdapter.getRmCleanJerkByIdUser(idUser);
                 call2.enqueue(new Callback<ArrayList<RmCleanJerk>>() {
 
                     @Override
@@ -126,6 +130,8 @@ public class FragmentRMActions {
 
                             makeGrafica();
                             makeTabla();
+                            
+
                         } catch (Exception e) {
                             Log.e("Exception: ", e.getMessage());
                         }
@@ -141,7 +147,7 @@ public class FragmentRMActions {
                 break;
 
             case 3:
-                Call<ArrayList<RmSquat>> call3 = apiAdapter.getRmSquatByIdWod(idWod);
+                Call<ArrayList<RmSquat>> call3 = apiAdapter.getRmSquatByIdUser(idUser);
                 call3.enqueue(new Callback<ArrayList<RmSquat>>() {
 
                     @Override
@@ -165,6 +171,8 @@ public class FragmentRMActions {
 
                             makeGrafica();
                             makeTabla();
+
+
 
                         } catch (Exception e) {
                             Log.e("Exception: ", e.getMessage());

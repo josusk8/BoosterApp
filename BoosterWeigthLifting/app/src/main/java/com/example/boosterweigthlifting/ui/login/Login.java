@@ -13,6 +13,7 @@ import com.example.boosterweigthlifting.MainActivity;
 import com.example.boosterweigthlifting.R;
 import com.example.boosterweigthlifting.persistence.interfaces.ApiAdapter;
 import com.example.boosterweigthlifting.persistence.models.Usuario;
+import com.example.boosterweigthlifting.persistence.utils.Globals;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
@@ -71,11 +72,8 @@ public class Login extends AppCompatActivity {
 
     private void connect() {
 
-        //String url1 = "http://10.0.2.2:8080/booster/v1/";
-        String url = "http://192.168.31.249:8080/booster/v1/";
-
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Globals.url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -104,6 +102,7 @@ public class Login extends AppCompatActivity {
                              } else {
 
                                  if (usuario.getPass().toString().equals(password.toString())) {
+                                     Globals.idUsuario = usuario.getIdUsuario();
                                      startApp();
                                  } else {
                                      Toast.makeText(getApplicationContext(), "Contraseña incorrecta", Toast.LENGTH_SHORT).show();

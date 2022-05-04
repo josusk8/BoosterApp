@@ -62,20 +62,20 @@ public interface ApiAdapter {
     @GET("rm/squat")
     Call<ArrayList<RmSquat>> getAllRmSquat();
 
-    @GET("rm/squat/{idWod}")
-    Call<ArrayList<RmSquat>> getRmSquatByIdWod(@Path("idWod") int idWod);
+    @GET("rm/squat/{idUser}")
+    Call<ArrayList<RmSquat>> getRmSquatByIdUser(@Path("idUser") int idUser);
 
     @GET("rm/snatch")
     Call<ArrayList<RmSnatch>> getAllRmSnatch();
 
-    @GET("rm/snatch/{idWod}")
-    Call<ArrayList<RmSnatch>> getRmSnatchByIdWod(@Path("idWod") int idWod);
+    @GET("rm/snatch/{idUser}")
+    Call<ArrayList<RmSnatch>> getRmSnatchByIdUser(@Path("idUser") int idUser);
 
     @GET("rm/cleanjerk")
     Call<ArrayList<RmCleanJerk>> getAllRmCleanJerk();
 
-    @GET("rm/cleanjerk/{idWod}")
-    Call<ArrayList<RmCleanJerk>> getRmCleanJerkByIdWod(@Path("idWod") int idWod);
+    @GET("rm/cleanjerk/{idUser}")
+    Call<ArrayList<RmCleanJerk>> getRmCleanJerkByIdUser(@Path("idUser") int idUser);
 
     @POST("wod")
     Call<Wod> setWod(@Body Wod wod);

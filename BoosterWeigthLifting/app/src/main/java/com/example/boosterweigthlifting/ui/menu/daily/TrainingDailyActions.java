@@ -13,6 +13,7 @@ import com.example.boosterweigthlifting.persistence.models.PullMovimientoPrincip
 import com.example.boosterweigthlifting.persistence.models.Squat;
 import com.example.boosterweigthlifting.persistence.models.VarMovimientoSecundario;
 import com.example.boosterweigthlifting.persistence.models.Wod;
+import com.example.boosterweigthlifting.persistence.utils.Globals;
 
 import java.util.ArrayList;
 
@@ -24,10 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TrainingDailyActions {
     View view;
-    //String url = "http://10.0.2.2:8080/booster/v1/";
-    String url = "http://192.168.31.249:8080/booster/v1/";
-     //String url = "http://192.168.0.21:8080/booster/v1/";
-    //String url = "http://192.168.31.112:8080/booster/v1/";
 
     ArrayList<Wod> wods = new ArrayList<>();
     int position;
@@ -194,7 +191,7 @@ public class TrainingDailyActions {
         }
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Globals.url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -226,13 +223,13 @@ public class TrainingDailyActions {
     public void getWods() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Globals.url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
 
-        Call<ArrayList<Wod>> call = apiAdapter.getWodByIdUser(1);
+        Call<ArrayList<Wod>> call = apiAdapter.getWodByIdUser(Globals.idUsuario);
 
         call.enqueue(new Callback<ArrayList<Wod>>() {
 
@@ -266,7 +263,7 @@ public class TrainingDailyActions {
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Globals.url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
