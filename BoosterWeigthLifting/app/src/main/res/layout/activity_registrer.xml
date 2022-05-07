@@ -7,7 +7,11 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="ui.login.Login">
+    tools:context="ui.login.Login"
+    android:background="@drawable/logoinit"
+    android:backgroundTint="#40DDDDDD"
+    >
+
 
 
     <TextView

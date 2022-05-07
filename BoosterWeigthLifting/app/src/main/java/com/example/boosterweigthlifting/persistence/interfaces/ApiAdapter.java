@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
+import retrofit2.http.DELETE;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -80,13 +80,21 @@ public interface ApiAdapter {
     @GET("rm/cleanjerk/{idUser}")
     Call<ArrayList<RmCleanJerk>> getRmCleanJerkByIdUser(@Path("idUser") int idUser);
 
+
+    @FormUrlEncoded
     @Headers("Content-Type:application/json")
     @POST("wod")
-    Call<Wod> setWod(@Body Wod wod);
+    Call<Wod> setWod(@Body String rawJsonString);
 
+    @FormUrlEncoded
     @Headers("Content-Type:application/json")
     @POST("wod")
     Call<ArrayList<Wod>> setAllWod(@Body ArrayList<Wod> wod);
+
+    @FormUrlEncoded
+    @Headers("Content-Type:application/json")
+    @POST("wod")
+    Call<ArrayList<Wod>> setAllWodString(@Body String rawJsonString);
 
 
     @FormUrlEncoded
@@ -95,16 +103,20 @@ public interface ApiAdapter {
     Call<Usuario> setUsuario (@Body Usuario usuario);;
 
 
-    @FormUrlEncoded
-    @Headers("Content-Type: application/json")
-    @POST("usuario")
-    Call<Usuario> setUsuarioONLYNAME
-            (@Field("nombre") String nombre);
-
-
     @Headers("Content-Type: application/json")
     @POST("usuario")
     Call<Usuario> setUserString(@Body String rawJsonString);
 
+
+
+    //@HTTP(method = "DELETE", path = "rm/squat//7")
+    @DELETE("rm/squat/{idUser}/{idSquat}")
+    Call<Void> deleteSquat(@Path("idUser") int idUser, @Path("idSquat") int idSquat);
+
+    @DELETE("rm/cleanjerk/{idUser}/{idCleanJerk}")
+    Call<Void> deleteCleanJerk(@Path("idUser") int idUser, @Path("idCleanJerk") int idCleanJerk);
+
+    @DELETE("rm/snatch/{idUser}/{idSnatch}")
+    Call<Void> deleteSnatch(@Path("idUser") int idUser, @Path("idSnatch") int idSnatch);
 
 }

@@ -32,10 +32,11 @@
                 android:id="@+id/btnInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_info"
-                android:background="#00FF4081"
                 android:layout_gravity="end"
-                app:tint="@color/accent">
+                android:background="#00FF4081"
+                android:src="@drawable/icon_info"
+                app:tint="@color/accent"
+                tools:ignore="TouchTargetSizeCheck">
 
             </ImageButton>
 
@@ -130,7 +131,8 @@
 
             >
             <TableRow
-                android:background="#20BB86FC">
+                android:background="#20BB86FC"
+                android:id="@+id/trTable">
 
                 <TextView
                     android:layout_width="76dp"

@@ -12,6 +12,7 @@ public class Globals {
     public static float lastRmSquat = 0;
     public static float lastRmSnatch = 0;
     public static float lastRmCleanJerk = 0;
+    public static int type ;
 
 
 }

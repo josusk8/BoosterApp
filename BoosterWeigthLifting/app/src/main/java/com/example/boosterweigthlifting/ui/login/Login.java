@@ -43,8 +43,10 @@ public class Login extends AppCompatActivity {
         tvRegister = (TextView) findViewById(R.id.tvRegister);
         etEmail = (TextInputEditText) findViewById(R.id.etEmail);
         etPassword = (TextInputEditText) findViewById(R.id.etPassword);
-
-
+////////
+        etEmail.setText("josusk8@gmail.com");
+        etPassword.setText("1234");
+///////
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

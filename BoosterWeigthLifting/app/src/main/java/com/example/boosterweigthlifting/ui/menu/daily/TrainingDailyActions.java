@@ -14,6 +14,7 @@ import com.example.boosterweigthlifting.persistence.models.Squat;
 import com.example.boosterweigthlifting.persistence.models.VarMovimientoSecundario;
 import com.example.boosterweigthlifting.persistence.models.Wod;
 import com.example.boosterweigthlifting.persistence.utils.Globals;
+import com.example.boosterweigthlifting.persistence.utils.RetrofitClient;
 
 import java.util.ArrayList;
 
@@ -76,12 +77,10 @@ public class TrainingDailyActions {
 
     public void mostrarPrimero() {
 
-        Log.d("mostrar", "tamaño " + wods.size());
         if (wods.size() >= 1) {
             Wod wod = wods.get(0);
             position = 1;
             rellenarCampos(wod);
-            //Log.d("mostrar", wod.getIdWod() + "");
 
         }
 
@@ -97,14 +96,14 @@ public class TrainingDailyActions {
                 position++;
                 Wod wod = wods.get(position - 1);
                 rellenarCampos(wod);
-                grabar(wod);
-                Log.d("mostrarS", wod.getIdWod() + "");
+                //grabar(wod);
+
 
             } else {
                 position = 0;
                 Wod wod = wods.get(position);
                 rellenarCampos(wod);
-                grabar(wod);
+                //grabar(wod);
 
 
             }
@@ -128,7 +127,7 @@ public class TrainingDailyActions {
                 position--;
                 Wod wod = wods.get(position);
                 rellenarCampos(wod);
-                grabar(wod);
+               // grabar(wod);
             }
 
         }
@@ -190,14 +189,20 @@ public class TrainingDailyActions {
             actualWod.setCheck(0);
         }
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Globals.url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        ApiAdapter apiAdapter = retrofit.create(ApiAdapter.class);
+        ApiAdapter apiAdapter = RetrofitClient.getClient().create(ApiAdapter.class);
 
-        Call<Wod> call = apiAdapter.setWod(actualWod);
+        String jsonRawWod = "{\n" +
+                "        \"idWod\": "+actualWod.getIdWod()+",\n" +
+                "        \"idUsuario\": "+actualWod.getIdUsuario()+",\n" +
+                "        \"comentario\": \""+actualWod.getComentario()+"\",\n" +
+                "        \"dia\": "+actualWod.getDia()+",\n" +
+                "        \"fecha\": \"2022"+actualWod.getFecha().toString()+"-04-08\",\n" +
+                "        \"semana\": "+actualWod.getSemana()+",\n" +
+                "        \"check\": "+actualWod.getCheck()+"\n" +
+                "    }";
+
+        Call<Wod> call = apiAdapter.setWod(jsonRawWod);
         call.enqueue(new Callback<Wod> () {
             @Override
             public void onResponse(Call<Wod>  call, Response<Wod>  response) {

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.boosterweigthlifting.R;
+import com.example.boosterweigthlifting.persistence.utils.Globals;
 import com.example.boosterweigthlifting.ui.popup.InfoActivity;
 
 import lecho.lib.hellocharts.view.LineChartView;
@@ -42,6 +43,7 @@ public class FragmentRM extends Fragment {
     EditText etDate;
 
 
+
     public FragmentRM() {
         // Required empty public constructor
     }
@@ -65,6 +67,7 @@ public class FragmentRM extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +79,7 @@ public class FragmentRM extends Fragment {
 
         name = getArguments().getString("name").toString();
         type = getArguments().getInt("type");
+        Globals.type= getArguments().getInt("type");
 
 
     }
@@ -95,7 +99,6 @@ public class FragmentRM extends Fragment {
 
 
         ImageButton btnInfo = (ImageButton) view.findViewById(R.id.btnInfo);
-
         btnInfo.setOnClickListener(new View.OnClickListener() {
             String url;
 
@@ -122,8 +125,6 @@ public class FragmentRM extends Fragment {
                 startActivity(info);
             }
         });
-
-
 
 
 
