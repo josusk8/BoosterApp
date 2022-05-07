@@ -5,17 +5,28 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.boosterweigthlifting.R;
+import com.example.boosterweigthlifting.persistence.interfaces.ApiAdapter;
+import com.example.boosterweigthlifting.persistence.models.RmCleanJerk;
+import com.example.boosterweigthlifting.persistence.models.RmSnatch;
+import com.example.boosterweigthlifting.persistence.models.RmSquat;
 import com.example.boosterweigthlifting.persistence.utils.Globals;
+import com.example.boosterweigthlifting.persistence.utils.RetrofitClient;
 import com.example.boosterweigthlifting.ui.popup.InfoActivity;
 
 import lecho.lib.hellocharts.view.LineChartView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,8 +51,8 @@ public class FragmentRM extends Fragment {
 
     String name;
     int type;
-    EditText etDate;
-
+    DatePicker etDate;
+    EditText editTextKg;
 
 
     public FragmentRM() {
@@ -79,7 +90,7 @@ public class FragmentRM extends Fragment {
 
         name = getArguments().getString("name").toString();
         type = getArguments().getInt("type");
-        Globals.type= getArguments().getInt("type");
+        Globals.type = getArguments().getInt("type");
 
 
     }
@@ -105,14 +116,14 @@ public class FragmentRM extends Fragment {
             @Override
             public void onClick(View view) {
 
-                switch (name){
+                switch (name) {
                     case "Snatch":
                         url = "https://www.youtube.com/embed/9xQp2sldyts";
                         break;
                     case "Clean & Jerk":
                         url = "https://www.youtube.com/embed/PjY1rH4_MOA";
                         break;
-                    case"Back Squat":
+                    case "Back Squat":
                         url = "https://www.youtube.com/embed/QmZAiBqPvZw";
                         break;
                     default:
@@ -126,6 +137,121 @@ public class FragmentRM extends Fragment {
             }
         });
 
+        editTextKg = (EditText) view.findViewById(R.id.editTextKg);
+        etDate = (DatePicker) view.findViewById(R.id.etDate);
+        Button btnNewRm = (Button) view.findViewById(R.id.btnNewRm);
+        btnNewRm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+
+                    int dayOfMonth = etDate.getDayOfMonth();
+                    int month = etDate.getMonth();
+                    int year = etDate.getYear();
+                    String fecha =
+                            year + "-" + String.format("%02d", month) + "-" + String.format("%02d", dayOfMonth);
+                    Float peso = 0f;
+                    peso = Float.parseFloat(editTextKg.getText().toString());
+
+                    switch (Globals.type) {
+
+                        case 1:
+                            ApiAdapter apiAdapter = RetrofitClient.getClient().create(ApiAdapter.class);
+                            Call<RmSnatch> call = apiAdapter.setUserRmSnacth("{\n" +
+                                    "        \"fecha\": \"" + fecha + "\",\n" +
+                                    "        \"peso\": " + peso + ",\n" +
+                                    "        \"idUsuario\": " + Globals.idUsuario + "\n" +
+                                    "    }");
+                            call.enqueue(new Callback<RmSnatch>() {
+                                @Override
+                                public void onResponse(Call<RmSnatch> call, Response<RmSnatch> response) {
+
+                                    if (response.code() == 200) {
+                                        Toast.makeText(view.getContext(), R.string.NewRmCreate, Toast.LENGTH_LONG).show();
+                                        fragmentRMActions.vaciarVariables();
+                                        fragmentRMActions.getPersistencia(type);
+
+                                    } else {
+                                        Toast.makeText(view.getContext(), "Error: " + response.code(), Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<RmSnatch> call, Throwable t) {
+                                    Toast.makeText(view.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+                            break;
+
+                        case 2:
+                            ApiAdapter apiAdapter2 = RetrofitClient.getClient().create(ApiAdapter.class);
+                            Call<RmCleanJerk> call2 = apiAdapter2.setUserRmCleanJerk("{\n" +
+                                    "        \"fecha\": \"" + fecha + "\",\n" +
+                                    "        \"peso\": " + peso + ",\n" +
+                                    "        \"idUsuario\": " + Globals.idUsuario + "\n" +
+                                    "    }");
+                            call2.enqueue(new Callback<RmCleanJerk>() {
+                                @Override
+                                public void onResponse(Call<RmCleanJerk> call, Response<RmCleanJerk> response) {
+
+                                    if (response.code() == 200) {
+                                        Toast.makeText(view.getContext(), R.string.NewRmCreate, Toast.LENGTH_LONG).show();
+                                        fragmentRMActions.vaciarVariables();
+                                        fragmentRMActions.getPersistencia(type);
+
+                                    } else {
+                                        Toast.makeText(view.getContext(), "Error: " + response.code(), Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<RmCleanJerk> call, Throwable t) {
+                                    Toast.makeText(view.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+                            break;
+
+                        case 3:
+                            ApiAdapter apiAdapter3 = RetrofitClient.getClient().create(ApiAdapter.class);
+                            Call<RmSquat> call3 = apiAdapter3.setUserRmSquat("{\n" +
+                                    "        \"fecha\": \"" + fecha + "\",\n" +
+                                    "        \"peso\": " + peso + ",\n" +
+                                    "        \"idUsuario\": " + Globals.idUsuario + "\n" +
+                                    "    }");
+                            call3.enqueue(new Callback<RmSquat>() {
+                                @Override
+                                public void onResponse(Call<RmSquat> call, Response<RmSquat> response) {
+
+                                    if (response.code() == 200) {
+                                        Toast.makeText(view.getContext(), R.string.NewRmCreate, Toast.LENGTH_LONG).show();
+                                        fragmentRMActions.vaciarVariables();
+                                        fragmentRMActions.getPersistencia(type);
+
+                                    } else {
+                                        Toast.makeText(view.getContext(), "Error: " + response.code(), Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<RmSquat> call, Throwable t) {
+                                    Toast.makeText(view.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+                            break;
+
+                    }
+
+
+                } catch (Exception e) {
+
+                }
+
+            }
+        });
 
 
         return view;

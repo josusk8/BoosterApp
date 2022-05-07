@@ -107,6 +107,17 @@ public interface ApiAdapter {
     @POST("usuario")
     Call<Usuario> setUserString(@Body String rawJsonString);
 
+    @Headers("Content-Type: application/json")
+    @POST("rm/snatch")
+    Call<RmSnatch> setUserRmSnacth(@Body String rawJsonString);
+
+    @Headers("Content-Type: application/json")
+    @POST("rm/cleanjerk")
+    Call<RmCleanJerk> setUserRmCleanJerk(@Body String rawJsonString);
+
+    @Headers("Content-Type: application/json")
+    @POST("rm/squat")
+    Call<RmSquat> setUserRmSquat(@Body String rawJsonString);
 
 
     //@HTTP(method = "DELETE", path = "rm/squat//7")

@@ -33,6 +33,8 @@
 
     <string name="selectOne">Selecciona una opción</string>
 
+    <string name="NewRmCreate">Nuevo RM creado</string>
+
     <string name="men">Hombre</string>
     <string name="woman">Mujer</string>
 
