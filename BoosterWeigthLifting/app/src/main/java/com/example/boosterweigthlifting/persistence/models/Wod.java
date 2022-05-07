@@ -1,15 +1,37 @@
 package com.example.boosterweigthlifting.persistence.models;
 
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Wod {
 
-
+    @SerializedName("idWod")
+    @Expose
     private int idWod;
+
+    @SerializedName("dia")
+    @Expose
     private int dia;
+
+    @SerializedName("fecha")
+    @Expose
     private String fecha;
+
+    @SerializedName("comentario")
+    @Expose
     private String comentario = "";
+
+    @SerializedName("semana")
+    @Expose
     private int semana;
+
+    @SerializedName("idUsuario")
+    @Expose
     private int idUsuario;
+
+    @SerializedName("check")
+    @Expose
     private int check = 0;
 
     private MovimientoPrincipal movimientoPrincipal;

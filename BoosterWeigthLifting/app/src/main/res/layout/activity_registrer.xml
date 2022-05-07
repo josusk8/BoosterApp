@@ -1,80 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="ui.login.Login">
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:gravity="center"
-        android:text="@string/NewUserRegister"
-        android:textSize="25dp" />
+        android:layout_marginTop="20sp"
+        android:text="@string/Birthday"
+        android:textAlignment="center"
+        android:textSize="15sp">
+
+    </TextView>
+
+    <DatePicker
+        android:id="@+id/dpDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:inputType="date"
+
+        ></DatePicker>
 
     <EditText
+
         android:id="@+id/etEmailRegister"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:hint="Email" />
 
     <EditText
         android:id="@+id/etPasswordRegister"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:hint="@string/pass" />
 
     <EditText
         android:id="@+id/etNameRegister"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:hint="@string/name" />
 
     <EditText
-        android:id="@+id/etBirthdayRegister"
+        android:id="@+id/etSurnameRegister"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/surname" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:hint="@string/Birthday" />
-<LinearLayout
+        android:gravity="center">
+
+        <EditText
+            android:gravity="center"
+            android:id="@+id/etWeigthRegister"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="kg" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/rbGroupSex"
+            >
+
+            <RadioButton
+                android:id="@+id/rbMen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/men" />
+
+            <RadioButton
+                android:id="@+id/rbWoman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/woman" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <EditText
-        android:layout_weight="1"
-        android:gravity="center"
-        android:id="@+id/etWeigthRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:hint="kg" />
 
-    <EditText
-        android:layout_weight="1"
-        android:gravity="center"
-        android:id="@+id/etAgeRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:hint="@string/Age" />
+
+
 
 </LinearLayout>
 
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnCreate"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Create"
-
         />
 
 

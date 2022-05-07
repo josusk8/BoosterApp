@@ -100,7 +100,7 @@ public class FragmentRMActions {
                     @Override
                     public void onFailure(Call<ArrayList<RmSnatch>> call, Throwable t) {
                         Log.d("Estado", t.getMessage());
-                        Toast.makeText(view.getContext(), "Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(view.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 });
@@ -130,7 +130,7 @@ public class FragmentRMActions {
 
                             makeGrafica();
                             makeTabla();
-                            
+
 
                         } catch (Exception e) {
                             Log.e("Exception: ", e.getMessage());
@@ -140,7 +140,7 @@ public class FragmentRMActions {
                     @Override
                     public void onFailure(Call<ArrayList<RmCleanJerk>> call, Throwable t) {
                         Log.d("Estado", t.getMessage());
-                        Toast.makeText(view.getContext(), "Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(view.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 });
@@ -182,7 +182,7 @@ public class FragmentRMActions {
                     @Override
                     public void onFailure(Call<ArrayList<RmSquat>> call, Throwable t) {
                         Log.d("Estado", t.getMessage());
-                        Toast.makeText(view.getContext(), "Codigo: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(view.getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 });

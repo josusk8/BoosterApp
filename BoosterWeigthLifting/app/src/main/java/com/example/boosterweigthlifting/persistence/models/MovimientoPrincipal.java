@@ -1,35 +1,66 @@
 package com.example.boosterweigthlifting.persistence.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class MovimientoPrincipal implements Serializable {
 
+	@SerializedName("idMovimientoprincipal")
+	@Expose
 	private int idMovimientoprincipal;
 
+	@SerializedName("idWod")
+	@Expose
 	private int idWod;
-	
+
+	@SerializedName("idUsuario")
+	@Expose
 	private int idUsuario;
 
+	@SerializedName("nombre")
+	@Expose
 	private String nombre;
 
+	@SerializedName("pesoMax")
+	@Expose
 	private float pesoMax;
 
+	@SerializedName("pesoMin")
+	@Expose
 	private float pesoMin;
 
+	@SerializedName("pocentajeMin")
+	@Expose
 	private int pocentajeMin;
 
+	@SerializedName("porcentajeMax")
+	@Expose
 	private int porcentajeMax;
 
+	@SerializedName("repsOptima")
+	@Expose
 	private int repsOptima;
 
+	@SerializedName("serieMax")
+	@Expose
 	private int serieMax;
 
+	@SerializedName("serieMin")
+	@Expose
 	private int serieMin;
 
+	@SerializedName("repsTotalMax")
+	@Expose
 	private int repsTotalMax;
 
+	@SerializedName("repsTotalMin")
+	@Expose
 	private int repsTotalMin;
 
+	@SerializedName("rm")
+	@Expose
 	private float rm;
 
 

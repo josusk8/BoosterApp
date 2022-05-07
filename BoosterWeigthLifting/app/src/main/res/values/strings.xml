@@ -23,7 +23,7 @@
     <string name="NewUser">New user?</string>
     <string name="pass">Password</string>
     <string name="NewUserRegister">Create new user</string>
-    <string name="Create">Create</string>
+    <string name="Create">Create New User</string>
     <string name="WelcomeMsn">Welcome to Booster APP\r\nThe first time ----\r\nThe Second.---
     </string>
 
@@ -54,6 +54,23 @@
     <string name="mode">Mode</string>
     <string name="selecctionWeek"> Week of training</string>
     <string name="calculate">c\na\nl\nc\nu\nl\na\nt\ne</string>
+
+    <string name="errorEmail">Wrong email format</string>
+    <string name="errorPassword">The password must be between 8 and 16 characters, at least one digit, at least one lowercase, and at least one uppercase.
+It can NOT have other symbols.</string>
+    <string name="errorCm">Not real height </string>
+    <string name="errorKg">Not real weigth </string>
+    <string name="errorName">Name not valid </string>
+    <string name="errorSurname">Surname not valid </string>
+    <string name="surname">Surname</string>
+
+    <string name="men">Men</string>
+    <string name="woman">Woman</string>
+
+    <string name="NewUserCreate">New user create</string>
+
+    <string name="selectOne">Select one this</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -22,12 +22,19 @@
     <string name="NewUser">¿Nuevo usuario?</string>
     <string name="pass">Contraseña</string>
     <string name="NewUserRegister">Crear nuevo usuario</string>
-    <string name="Create">Generar</string>
+    <string name="Create">Crear Nuevo Usuario</string>
     <string name="WelcomeMsn">Bienvenido a BoosterAPP\\n\\rPrimer paso para disfrutar de la APP----\\r\\nSegundo sadsadsa</string>
     <string name="name">Nombre</string>
+    <string name="errorSurname">Apellido no válido </string>
     <string name="Birthday">Fecha de nacimiento</string>
     <string name="Age">Edad</string>
 
+    <string name="NewUserCreate">Nuevo usuario creado</string>
+
+    <string name="selectOne">Selecciona una opción</string>
+
+    <string name="men">Hombre</string>
+    <string name="woman">Mujer</string>
 
     <string name="makeOptions">Crear nuevo entrenamiento</string>
     <string name="aboutOptions">App info</string>
@@ -55,11 +62,16 @@
     <string name="selecctionWeek">Semana de entrenamiento</string>
     <string name="calculate">c\na\nl\nc\nu\nl\na\nr</string>
 
-
+    <string name="errorEmail">Error formato email</string>
+    <string name="errorPassword">La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
+NO puede tener otros símbolos</string>
+    <string name="errorCm">Altura irreal </string>
+    <string name="errorKg">Peso irreal </string>
+    <string name="errorName">Nombre no válido</string>
 
     <string name="complete">¿Completado?</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="surname">Apellidos</string>
 
 </resources>

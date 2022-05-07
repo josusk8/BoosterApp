@@ -1,10 +1,24 @@
 package com.example.boosterweigthlifting.persistence.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class RmSnatch {
 
+    @SerializedName("idRmSnatch")
+    @Expose
     private int idRmSnatch;
+
+    @SerializedName("fecha")
+    @Expose
     private String fecha;
+
+    @SerializedName("peso")
+    @Expose
     private float peso;
+
+    @SerializedName("idUsuario")
+    @Expose
     private int idUsuario;
 
     public RmSnatch() {

@@ -14,7 +14,10 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -77,17 +80,31 @@ public interface ApiAdapter {
     @GET("rm/cleanjerk/{idUser}")
     Call<ArrayList<RmCleanJerk>> getRmCleanJerkByIdUser(@Path("idUser") int idUser);
 
+    @Headers("Content-Type:application/json")
     @POST("wod")
     Call<Wod> setWod(@Body Wod wod);
 
+    @Headers("Content-Type:application/json")
     @POST("wod")
     Call<ArrayList<Wod>> setAllWod(@Body ArrayList<Wod> wod);
 
+
+    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
     @POST("usuario")
-    Call<Usuario> setUsuario(@Body Usuario usuario);
+    Call<Usuario> setUsuario (@Body Usuario usuario);;
 
 
+    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
+    @POST("usuario")
+    Call<Usuario> setUsuarioONLYNAME
+            (@Field("nombre") String nombre);
 
+
+    @Headers("Content-Type: application/json")
+    @POST("usuario")
+    Call<Usuario> setUserString(@Body String rawJsonString);
 
 
 }

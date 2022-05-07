@@ -1,13 +1,40 @@
 package com.example.boosterweigthlifting.persistence.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Usuario {
+
+    @SerializedName("idUsuario")
+    @Expose
     private int idUsuario;
+
+    @SerializedName("nombre")
+    @Expose
     private String nombre;
+
+    @SerializedName("pass")
+    @Expose
     private String pass;
+
+    @SerializedName("email")
+    @Expose
     private String email;
+
+    @SerializedName("apellidos")
+    @Expose
     private String apellidos;
-    private String Sexo;
+
+    @SerializedName("sexo")
+    @Expose
+    private String sexo;
+
+    @SerializedName("fechaNacimiento")
+    @Expose
     private String fechaNacimiento;
+
+    @SerializedName("peso")
+    @Expose
     private float peso;
 
     public Usuario(){
@@ -54,11 +81,11 @@ public class Usuario {
     }
 
     public String getSexo() {
-        return Sexo;
+        return sexo;
     }
 
     public void setSexo(String sexo) {
-        Sexo = sexo;
+        this.sexo = sexo;
     }
 
     public String getFechaNacimiento() {
