@@ -81,12 +81,12 @@ public interface ApiAdapter {
     Call<ArrayList<RmCleanJerk>> getRmCleanJerkByIdUser(@Path("idUser") int idUser);
 
 
-    @FormUrlEncoded
+
     @Headers("Content-Type:application/json")
     @POST("wod")
     Call<Wod> setWod(@Body String rawJsonString);
 
-    @FormUrlEncoded
+
     @Headers("Content-Type:application/json")
     @POST("wod")
     Call<ArrayList<Wod>> setAllWod(@Body ArrayList<Wod> wod);

@@ -2,7 +2,6 @@ package com.example.boosterweigthlifting.ui.menu.training;
 
 
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -11,9 +10,7 @@ import android.widget.TextView;
 import com.example.boosterweigthlifting.Ejercicio;
 import com.example.boosterweigthlifting.R;
 import com.example.boosterweigthlifting.Wod;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import com.example.boosterweigthlifting.persistence.utils.Globals;
 
 public class TrainingActions {
     View view;
@@ -47,10 +44,12 @@ public class TrainingActions {
     }
     public void setTraining(int semana, int dia) {
 
-        Ejercicio movPrincipal = new Ejercicio(actv1.getText().toString(), 85f);
-        Ejercicio movSecPrincipal = new Ejercicio(actv2.getText().toString(), 85f);
-        Ejercicio movVariante = new Ejercicio(actv3.getText().toString(), 85f);
-        Ejercicio sentadillas = new Ejercicio(actv4.getText().toString(), 150f);
+
+
+        Ejercicio movPrincipal = new Ejercicio(actv1.getText().toString(), Globals.lastRmSnatch);
+        Ejercicio movSecPrincipal = new Ejercicio(actv2.getText().toString(), Globals.lastRmSnatch);
+        Ejercicio movVariante = new Ejercicio(actv3.getText().toString(), Globals.lastRmSnatch);
+        Ejercicio sentadillas = new Ejercicio(actv4.getText().toString(), Globals.lastRmSquat);
 
         Wod wod = new Wod(movPrincipal, movSecPrincipal, movVariante, sentadillas);
         wod.makeWod(semana, 0);

@@ -10,13 +10,24 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.boosterweigthlifting.R;
+import com.example.boosterweigthlifting.persistence.interfaces.ApiAdapter;
+import com.example.boosterweigthlifting.persistence.models.RmCleanJerk;
+import com.example.boosterweigthlifting.persistence.models.RmSnatch;
+import com.example.boosterweigthlifting.persistence.models.RmSquat;
+import com.example.boosterweigthlifting.persistence.utils.Globals;
+import com.example.boosterweigthlifting.persistence.utils.RetrofitClient;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,6 +87,8 @@ public class TrainingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_training, container, false);
 
+        getPersistencia();
+
         AutoCompleteTextView actv1 = (AutoCompleteTextView) view.findViewById(R.id.autoComplete1);
         AutoCompleteTextView actv2 = (AutoCompleteTextView) view.findViewById(R.id.autoComplete2);
         AutoCompleteTextView actv3 = (AutoCompleteTextView) view.findViewById(R.id.autoComplete3);
@@ -132,17 +145,15 @@ public class TrainingFragment extends Fragment {
         });
 
 
-
-
-
         ArrayAdapter adapterA = new ArrayAdapter(requireContext(), R.layout.list_a, movimiento_principal);
         actv1.setAdapter(adapterA);
 
         actv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
                 String selectedItem = (String) adapterView.getItemAtPosition(i);
-                Log.d("selected item", selectedItem);
 
                 actv2.setText(getString(R.string.add));
                 actv3.setText(getString(R.string.add));
@@ -155,6 +166,7 @@ public class TrainingFragment extends Fragment {
 
                         ArrayAdapter adapterCSnacth = new ArrayAdapter(requireContext(), R.layout.list_a, movimiento_variante1);
                         actv3.setAdapter(adapterCSnacth);
+
                         break;
 
                     case "Hang Snatch":
@@ -198,7 +210,6 @@ public class TrainingFragment extends Fragment {
         });
 
 
-
         Button btnCalcular = (Button) view.findViewById(R.id.btnCalcular);
 
         btnCalcular.setOnClickListener(new AdapterView.OnClickListener() {
@@ -215,6 +226,152 @@ public class TrainingFragment extends Fragment {
         return view;
     }
 
+    public void getPersistencia() {
+
+        Globals.lastRmSnatch = 0;
+        Globals.lastRmCleanJerk = 0;
+        Globals.lastRmSquat = 0;
+
+        Log.d("Aqui last", Globals.lastRmSnatch + "");
+
+        int idUser = Globals.idUsuario;
+
+        ApiAdapter apiAdapter = RetrofitClient.getClient().create(ApiAdapter.class);
+
+        Call<ArrayList<RmSnatch>> call = apiAdapter.getRmSnatchByIdUser(idUser);
+        call.enqueue(new Callback<ArrayList<RmSnatch>>() {
+
+            @Override
+            public void onResponse(Call<ArrayList<RmSnatch>> call, Response<ArrayList<RmSnatch>> response) {
+                Log.d("Aqui on response ", response.code() + "");
+                if (!response.isSuccessful()) {
+                    Toast.makeText(getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                try {
+                    ArrayList<RmSnatch> objectList = response.body();
+                    int cont = objectList.size();
+                    String[] fecha = new String[cont];
+                    float[] peso = new float[cont];
+
+                    for (int i = 0; i < objectList.size(); i++) {
+                        fecha[cont - 1] = objectList.get(i).getFecha();
+                        peso[cont - 1] = objectList.get(i).getPeso();
+                        cont--;
+                    }
+
+                    for (Float max : peso) {
+                        if (max > Globals.lastRmSnatch) {
+                            Globals.lastRmSnatch = max;
+                        }
+
+                    }
+
+                } catch (Exception e) {
+                    Log.e("Exception: ", e.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<RmSnatch>> call, Throwable t) {
+                Log.d("Estado", t.getMessage());
+                Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        ApiAdapter apiAdapter2 = RetrofitClient.getClient().create(ApiAdapter.class);
+
+        Call<ArrayList<RmCleanJerk>> call2 = apiAdapter2.getRmCleanJerkByIdUser(idUser);
+        call2.enqueue(new Callback<ArrayList<RmCleanJerk>>() {
+
+            @Override
+            public void onResponse(Call<ArrayList<RmCleanJerk>> call2, Response<ArrayList<RmCleanJerk>> response) {
+                Log.d("Aqui on response ", response.code() + "");
+                if (!response.isSuccessful()) {
+                    Toast.makeText(getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                try {
+                    ArrayList<RmCleanJerk> objectList = response.body();
+                    int cont = objectList.size();
+                    String[] fecha = new String[cont];
+                    float[] peso = new float[cont];
+
+                    for (int i = 0; i < objectList.size(); i++) {
+                        fecha[cont - 1] = objectList.get(i).getFecha();
+                        peso[cont - 1] = objectList.get(i).getPeso();
+                        cont--;
+                    }
+
+                    for (Float max : peso) {
+                        if (max > Globals.lastRmCleanJerk) {
+                            Globals.lastRmCleanJerk = max;
+                        }
+
+                    }
+
+                } catch (Exception e) {
+                    Log.e("Exception: ", e.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<RmCleanJerk>> call, Throwable t) {
+                Log.d("Estado", t.getMessage());
+                Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        ApiAdapter apiAdapter3 = RetrofitClient.getClient().create(ApiAdapter.class);
+
+        Call<ArrayList<RmSquat>> call3 = apiAdapter3.getRmSquatByIdUser(idUser);
+        call3.enqueue(new Callback<ArrayList<RmSquat>>() {
+
+            @Override
+            public void onResponse(Call<ArrayList<RmSquat>> call3, Response<ArrayList<RmSquat>> response) {
+                Log.d("Aqui on response ", response.code() + "");
+                if (!response.isSuccessful()) {
+                    Toast.makeText(getContext(), "Codigo: " + response.code(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                try {
+                    ArrayList<RmSquat> objectList = response.body();
+                    int cont = objectList.size();
+                    String[] fecha = new String[cont];
+                    float[] peso = new float[cont];
+
+                    for (int i = 0; i < objectList.size(); i++) {
+                        fecha[cont - 1] = objectList.get(i).getFecha();
+                        peso[cont - 1] = objectList.get(i).getPeso();
+                        cont--;
+                    }
+
+                    for (Float max : peso) {
+                        if (max > Globals.lastRmSquat) {
+                            Globals.lastRmSquat = max;
+                        }
+
+                    }
+
+                } catch (Exception e) {
+                    Log.e("Exception: ", e.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<RmSquat>> call, Throwable t) {
+                Log.d("Estado", t.getMessage());
+                Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
 
 }
 

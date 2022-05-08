@@ -50,6 +50,9 @@ public class FragmentRMActions extends Fragment {
     int type;
     Button btnBorrar;
 
+    public FragmentRMActions(){
+
+    }
 
     public FragmentRMActions(View view) {
         this.view = view;
@@ -60,6 +63,9 @@ public class FragmentRMActions extends Fragment {
 
     public void getPersistencia(int type) {
 
+        Globals.lastRmSnatch = 0;
+        Globals.lastRmCleanJerk = 0;
+        Globals.lastRmSquat = 0;
         int idUser = Globals.idUsuario;
 
         Retrofit retrofit = new Retrofit.Builder()

@@ -30,9 +30,9 @@ public class Wod {
     @Expose
     private int idUsuario;
 
-    @SerializedName("check")
+    @SerializedName("completo")
     @Expose
-    private int check = 0;
+    private int completo = 0;
 
     private MovimientoPrincipal movimientoPrincipal;
     private PullMovimientoPrincipal pullMovimientoPrincipal;
@@ -68,12 +68,12 @@ public class Wod {
         this.comentario = comentario;
     }
 
-    public int getCheck() {
-        return check;
+    public int getCompleto() {
+        return completo;
     }
 
-    public void setCheck(int check) {
-        this.check = check;
+    public void setCompleto(int completo) {
+        this.completo = completo;
     }
 
     public void setIdUsuario(int idUsuario) {

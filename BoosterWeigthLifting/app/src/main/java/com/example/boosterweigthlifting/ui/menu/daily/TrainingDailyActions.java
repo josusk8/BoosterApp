@@ -72,6 +72,9 @@ public class TrainingDailyActions {
         tvComent = (TextView) view.findViewById(R.id.tvComment);
         checkBox = (CheckBox) view.findViewById(R.id.checkBox);
 
+        //Arreglar la persistencia en el checkbox y el comentario
+        tvComent.setEnabled(false);
+        checkBox.setEnabled(false);
 
     }
 
@@ -170,7 +173,7 @@ public class TrainingDailyActions {
         tvSquatsReps.setText("" + sentadillas.getRepsTotalMin() + " - "
                 + sentadillas.getRepsTotalMax() + " (" + sentadillas.getRepsOptima() + ") rep");
 
-        if (wod.getCheck() == 1) {
+        if (wod.getCompleto() == 1) {
             checkBox.setChecked(true);
         }else{
             checkBox.setChecked(false);
@@ -184,9 +187,9 @@ public class TrainingDailyActions {
 
         actualWod.setComentario(tvComent.getText().toString());
         if(checkBox.isChecked()){
-            actualWod.setCheck(1);
+            actualWod.setCompleto(1);
         }else{
-            actualWod.setCheck(0);
+            actualWod.setCompleto(0);
         }
 
 
@@ -199,7 +202,7 @@ public class TrainingDailyActions {
                 "        \"dia\": "+actualWod.getDia()+",\n" +
                 "        \"fecha\": \"2022"+actualWod.getFecha().toString()+"-04-08\",\n" +
                 "        \"semana\": "+actualWod.getSemana()+",\n" +
-                "        \"check\": "+actualWod.getCheck()+"\n" +
+                "        \"check\": "+actualWod.getCompleto()+"\n" +
                 "    }";
 
         Call<Wod> call = apiAdapter.setWod(jsonRawWod);
