@@ -136,6 +136,7 @@ public class TrainingActions {
         week3.setBackground(view.getContext().getDrawable(R.drawable.buttons_week));
         week4.setBackground(view.getContext().getDrawable(R.drawable.buttons_week));
         semana = 1;
+        Globals.semana = 1;
         return semana;
     }
 
@@ -145,6 +146,7 @@ public class TrainingActions {
         week3.setBackground(view.getContext().getDrawable(R.drawable.buttons_week));
         week4.setBackground(view.getContext().getDrawable(R.drawable.buttons_week));
         semana = 2;
+        Globals.semana = 2;
         return semana;
     }
 
@@ -154,6 +156,7 @@ public class TrainingActions {
         week1.setBackground(view.getContext().getDrawable(R.drawable.buttons_week));
         week4.setBackground(view.getContext().getDrawable(R.drawable.buttons_week));
         semana = 3;
+        Globals.semana = 3;
         return semana;
     }
 
@@ -163,6 +166,7 @@ public class TrainingActions {
         week1.setBackground(view.getContext().getDrawable(R.drawable.buttons_week));
         week3.setBackground(view.getContext().getDrawable(R.drawable.buttons_week));
         semana = 4;
+        Globals.semana = 4;
         return semana;
     }
 
@@ -171,7 +175,7 @@ public class TrainingActions {
 
         wodGrabar = new com.example.boosterweigthlifting.persistence.models.Wod();
         wodGrabar.setDia(1);
-        wodGrabar.setSemana(2);
+        wodGrabar.setSemana(Globals.semana);
         wodGrabar.setIdUsuario(Globals.idUsuario);
         grabarWod(wodGrabar);
 
@@ -200,7 +204,7 @@ public class TrainingActions {
                 "        \"idUsuario\": " + wodGrabar.getIdUsuario() + ",\n" +
                 "        \"comentario\": \"" + wodGrabar.getComentario() + "\",\n" +
                 "        \"dia\": " + wodGrabar.getDia() + ",\n" +
-              //  "        \"fecha\": \""+fecha+"\",\n" +
+                //  "        \"fecha\": \""+fecha+"\",\n" +
                 "        \"semana\": " + wodGrabar.getSemana() + ",\n" +
                 "        \"check\": " + wodGrabar.getCompleto() + "\n" +
                 "    }";
@@ -210,9 +214,10 @@ public class TrainingActions {
             @Override
             public void onResponse(Call<com.example.boosterweigthlifting.persistence.models.Wod> call,
                                    Response<com.example.boosterweigthlifting.persistence.models.Wod> response) {
+                String nuevo = view.getResources().getString(R.string.NewWodCreate);
 
-                Toast.makeText(view.getContext(), R.string.NewUserCreate +": "+
-                        response.body().getIdWod() , Toast.LENGTH_LONG).show();
+                Toast.makeText(view.getContext(), nuevo + ": " +
+                        response.body().getIdWod(), Toast.LENGTH_LONG).show();
                 Globals.actualWod = response.body().getIdWod();
 
                 guardarMovPrincipal();
@@ -237,26 +242,25 @@ public class TrainingActions {
         });
 
 
-
     }
 
-    public  void guardarMovPrincipal(){
+    public void guardarMovPrincipal() {
 
         ApiAdapter apiAdapter2 = RetrofitClient.getClient().create(ApiAdapter.class);
-        String jsonRawWod2 ="{\n" +
-                "        \"idWod\": "+Globals.actualWod+",\n" +
-                "        \"idUsuario\": "+Globals.idUsuario+",\n" +
-                "        \"nombre\": \""+movPrincipal.getNombre()+"\",\n" +
-                "        \"pesoMax\": "+movPrincipal.getPeso()[1]+",\n" +
-                "        \"pesoMin\": "+movPrincipal.getPeso()[0]+",\n" +
-                "        \"pocentajeMin\": "+movPrincipal.getPorcentaje()[0]+",\n" +
-                "        \"porcentajeMax\": "+movPrincipal.getPorcentaje()[1]+",\n" +
-                "        \"repsOptima\": "+movPrincipal.getRepsOptima()+",\n" +
-                "        \"serieMax\": "+movPrincipal.getRepsSerie()[1]+",\n" +
-                "        \"serieMin\": "+movPrincipal.getRepsSerie()[0]+",\n" +
-                "        \"repsTotalMax\": "+movPrincipal.getRepsTotal()[1]+",\n" +
-                "        \"repsTotalMin\": "+movPrincipal.getRepsTotal()[0]+",\n" +
-                "        \"rm\": "+movPrincipal.getRm()+"\n" +
+        String jsonRawWod2 = "{\n" +
+                "        \"idWod\": " + Globals.actualWod + ",\n" +
+                "        \"idUsuario\": " + Globals.idUsuario + ",\n" +
+                "        \"nombre\": \"" + movPrincipal.getNombre() + "\",\n" +
+                "        \"pesoMax\": " + movPrincipal.getPeso()[1] + ",\n" +
+                "        \"pesoMin\": " + movPrincipal.getPeso()[0] + ",\n" +
+                "        \"pocentajeMin\": " + movPrincipal.getPorcentaje()[0] + ",\n" +
+                "        \"porcentajeMax\": " + movPrincipal.getPorcentaje()[1] + ",\n" +
+                "        \"repsOptima\": " + movPrincipal.getRepsOptima() + ",\n" +
+                "        \"serieMax\": " + movPrincipal.getRepsSerie()[1] + ",\n" +
+                "        \"serieMin\": " + movPrincipal.getRepsSerie()[0] + ",\n" +
+                "        \"repsTotalMax\": " + movPrincipal.getRepsTotal()[1] + ",\n" +
+                "        \"repsTotalMin\": " + movPrincipal.getRepsTotal()[0] + ",\n" +
+                "        \"rm\": " + movPrincipal.getRm() + "\n" +
                 "    }";
 
         Call<MovimientoPrincipal> call2 = apiAdapter2.setMovPrincipal(jsonRawWod2);
@@ -274,23 +278,24 @@ public class TrainingActions {
 
 
     }
-    public  void guardarPullPrincipal(){
+
+    public void guardarPullPrincipal() {
 
         ApiAdapter apiAdapter3 = RetrofitClient.getClient().create(ApiAdapter.class);
-        String jsonRawWod3 ="{\n" +
-                "        \"idWod\": "+Globals.actualWod+",\n" +
-                "        \"idUsuario\": "+Globals.idUsuario+",\n" +
-                "        \"nombre\": \""+movSecPrincipal.getNombre()+"\",\n" +
-                "        \"pesoMax\": "+movSecPrincipal.getPeso()[1]+",\n" +
-                "        \"pesoMin\": "+movSecPrincipal.getPeso()[0]+",\n" +
-                "        \"pocentajeMin\": "+movSecPrincipal.getPorcentaje()[0]+",\n" +
-                "        \"porcentajeMax\": "+movSecPrincipal.getPorcentaje()[1]+",\n" +
-                "        \"repsOptima\": "+movSecPrincipal.getRepsOptima()+",\n" +
-                "        \"serieMax\": "+movSecPrincipal.getRepsSerie()[1]+",\n" +
-                "        \"serieMin\": "+movSecPrincipal.getRepsSerie()[0]+",\n" +
-                "        \"repsTotalMax\": "+movSecPrincipal.getRepsTotal()[1]+",\n" +
-                "        \"repsTotalMin\": "+movSecPrincipal.getRepsTotal()[0]+",\n" +
-                "        \"rm\": "+movSecPrincipal.getRm()+"\n" +
+        String jsonRawWod3 = "{\n" +
+                "        \"idWod\": " + Globals.actualWod + ",\n" +
+                "        \"idUsuario\": " + Globals.idUsuario + ",\n" +
+                "        \"nombre\": \"" + movSecPrincipal.getNombre() + "\",\n" +
+                "        \"pesoMax\": " + movSecPrincipal.getPeso()[1] + ",\n" +
+                "        \"pesoMin\": " + movSecPrincipal.getPeso()[0] + ",\n" +
+                "        \"pocentajeMin\": " + movSecPrincipal.getPorcentaje()[0] + ",\n" +
+                "        \"porcentajeMax\": " + movSecPrincipal.getPorcentaje()[1] + ",\n" +
+                "        \"repsOptima\": " + movSecPrincipal.getRepsOptima() + ",\n" +
+                "        \"serieMax\": " + movSecPrincipal.getRepsSerie()[1] + ",\n" +
+                "        \"serieMin\": " + movSecPrincipal.getRepsSerie()[0] + ",\n" +
+                "        \"repsTotalMax\": " + movSecPrincipal.getRepsTotal()[1] + ",\n" +
+                "        \"repsTotalMin\": " + movSecPrincipal.getRepsTotal()[0] + ",\n" +
+                "        \"rm\": " + movSecPrincipal.getRm() + "\n" +
                 "    }";
 
         Call<PullMovimientoPrincipal> call3 = apiAdapter3.setPullMovPrincipal(jsonRawWod3);
@@ -307,23 +312,23 @@ public class TrainingActions {
         });
     }
 
-    public  void guardarVarMovSecundario(){
+    public void guardarVarMovSecundario() {
 
         ApiAdapter apiAdapter4 = RetrofitClient.getClient().create(ApiAdapter.class);
-        String jsonRawWod4 ="{\n" +
-                "        \"idWod\": "+Globals.actualWod+",\n" +
-                "        \"idUsuario\": "+Globals.idUsuario+",\n" +
-                "        \"nombre\": \""+movVariante.getNombre()+"\",\n" +
-                "        \"pesoMax\": "+movVariante.getPeso()[1]+",\n" +
-                "        \"pesoMin\": "+movVariante.getPeso()[0]+",\n" +
-                "        \"pocentajeMin\": "+movVariante.getPorcentaje()[0]+",\n" +
-                "        \"porcentajeMax\": "+movVariante.getPorcentaje()[1]+",\n" +
-                "        \"repsOptima\": "+movVariante.getRepsOptima()+",\n" +
-                "        \"serieMax\": "+movVariante.getRepsSerie()[1]+",\n" +
-                "        \"serieMin\": "+movVariante.getRepsSerie()[0]+",\n" +
-                "        \"repsTotalMax\": "+movVariante.getRepsTotal()[1]+",\n" +
-                "        \"repsTotalMin\": "+movVariante.getRepsTotal()[0]+",\n" +
-                "        \"rm\": "+movVariante.getRm()+"\n" +
+        String jsonRawWod4 = "{\n" +
+                "        \"idWod\": " + Globals.actualWod + ",\n" +
+                "        \"idUsuario\": " + Globals.idUsuario + ",\n" +
+                "        \"nombre\": \"" + movVariante.getNombre() + "\",\n" +
+                "        \"pesoMax\": " + movVariante.getPeso()[1] + ",\n" +
+                "        \"pesoMin\": " + movVariante.getPeso()[0] + ",\n" +
+                "        \"pocentajeMin\": " + movVariante.getPorcentaje()[0] + ",\n" +
+                "        \"porcentajeMax\": " + movVariante.getPorcentaje()[1] + ",\n" +
+                "        \"repsOptima\": " + movVariante.getRepsOptima() + ",\n" +
+                "        \"serieMax\": " + movVariante.getRepsSerie()[1] + ",\n" +
+                "        \"serieMin\": " + movVariante.getRepsSerie()[0] + ",\n" +
+                "        \"repsTotalMax\": " + movVariante.getRepsTotal()[1] + ",\n" +
+                "        \"repsTotalMin\": " + movVariante.getRepsTotal()[0] + ",\n" +
+                "        \"rm\": " + movVariante.getRm() + "\n" +
                 "    }";
 
         Call<VarMovimientoSecundario> call4 = apiAdapter4.setVarSecundario(jsonRawWod4);
@@ -340,23 +345,24 @@ public class TrainingActions {
         });
 
     }
-    public  void guardarSentadillas(){
+
+    public void guardarSentadillas() {
 
         ApiAdapter apiAdapter5 = RetrofitClient.getClient().create(ApiAdapter.class);
-        String jsonRawWod5 ="{\n" +
-                "        \"idWod\": "+Globals.actualWod+",\n" +
-                "        \"idUsuario\": "+Globals.idUsuario+",\n" +
-                "        \"nombre\": \""+sentadillas.getNombre()+"\",\n" +
-                "        \"pesoMax\": "+sentadillas.getPeso()[1]+",\n" +
-                "        \"pesoMin\": "+sentadillas.getPeso()[0]+",\n" +
-                "        \"pocentajeMin\": "+sentadillas.getPorcentaje()[0]+",\n" +
-                "        \"porcentajeMax\": "+sentadillas.getPorcentaje()[1]+",\n" +
-                "        \"repsOptima\": "+sentadillas.getRepsOptima()+",\n" +
-                "        \"serieMax\": "+sentadillas.getRepsSerie()[1]+",\n" +
-                "        \"serieMin\": "+sentadillas.getRepsSerie()[0]+",\n" +
-                "        \"repsTotalMax\": "+sentadillas.getRepsTotal()[1]+",\n" +
-                "        \"repsTotalMin\": "+sentadillas.getRepsTotal()[0]+",\n" +
-                "        \"rm\": "+sentadillas.getRm()+"\n" +
+        String jsonRawWod5 = "{\n" +
+                "        \"idWod\": " + Globals.actualWod + ",\n" +
+                "        \"idUsuario\": " + Globals.idUsuario + ",\n" +
+                "        \"nombre\": \"" + sentadillas.getNombre() + "\",\n" +
+                "        \"pesoMax\": " + sentadillas.getPeso()[1] + ",\n" +
+                "        \"pesoMin\": " + sentadillas.getPeso()[0] + ",\n" +
+                "        \"pocentajeMin\": " + sentadillas.getPorcentaje()[0] + ",\n" +
+                "        \"porcentajeMax\": " + sentadillas.getPorcentaje()[1] + ",\n" +
+                "        \"repsOptima\": " + sentadillas.getRepsOptima() + ",\n" +
+                "        \"serieMax\": " + sentadillas.getRepsSerie()[1] + ",\n" +
+                "        \"serieMin\": " + sentadillas.getRepsSerie()[0] + ",\n" +
+                "        \"repsTotalMax\": " + sentadillas.getRepsTotal()[1] + ",\n" +
+                "        \"repsTotalMin\": " + sentadillas.getRepsTotal()[0] + ",\n" +
+                "        \"rm\": " + sentadillas.getRm() + "\n" +
                 "    }";
 
         Call<Squat> call5 = apiAdapter5.setSentadillaas(jsonRawWod5);

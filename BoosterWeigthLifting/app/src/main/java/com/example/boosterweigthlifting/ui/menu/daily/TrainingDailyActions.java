@@ -1,5 +1,6 @@
 package com.example.boosterweigthlifting.ui.menu.daily;
 
+
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -29,7 +30,7 @@ public class TrainingDailyActions {
 
     ArrayList<Wod> wods = new ArrayList<>();
     int position;
-    int  idWod = 0;
+    int idWod = 0;
     Wod actualWod;
 
     TextView tvTittle;
@@ -130,7 +131,7 @@ public class TrainingDailyActions {
                 position--;
                 Wod wod = wods.get(position);
                 rellenarCampos(wod);
-               // grabar(wod);
+                // grabar(wod);
             }
 
         }
@@ -147,8 +148,9 @@ public class TrainingDailyActions {
         VarMovimientoSecundario varMovSecundario = wod.getVarMovimientoSecundario();
         Squat sentadillas = wod.getSquat();
 
+        String semana = view.getResources().getString(R.string.week);
 
-        tvTittle.setText("WOD " + wod.getSemana() + " - " + wod.getIdWod());
+        tvTittle.setText("WOD " + semana + " - " + wod.getSemana());
         tvFirstMov.setText(movPrincipal.getNombre());
         tvFirstMovKg.setText("" + movPrincipal.getPesoMin() + " - " + movPrincipal.getPesoMax() + "kg");
         tvFirstMovSeries.setText("" + movPrincipal.getSerieMin() + " - " + movPrincipal.getSerieMax() + " serie");
@@ -175,20 +177,20 @@ public class TrainingDailyActions {
 
         if (wod.getCompleto() == 1) {
             checkBox.setChecked(true);
-        }else{
+        } else {
             checkBox.setChecked(false);
         }
 
-         tvComent.setText(wod.getComentario());
+        tvComent.setText(wod.getComentario());
 
     }
 
     public void grabar(Wod wod) {
 
         actualWod.setComentario(tvComent.getText().toString());
-        if(checkBox.isChecked()){
+        if (checkBox.isChecked()) {
             actualWod.setCompleto(1);
-        }else{
+        } else {
             actualWod.setCompleto(0);
         }
 
@@ -196,23 +198,23 @@ public class TrainingDailyActions {
         ApiAdapter apiAdapter = RetrofitClient.getClient().create(ApiAdapter.class);
 
         String jsonRawWod = "{\n" +
-                "        \"idWod\": "+actualWod.getIdWod()+",\n" +
-                "        \"idUsuario\": "+actualWod.getIdUsuario()+",\n" +
-                "        \"comentario\": \""+actualWod.getComentario()+"\",\n" +
-                "        \"dia\": "+actualWod.getDia()+",\n" +
-              //  "        \"fecha\": \""+actualWod.getFecha().toString()+"\",\n" +
-                "        \"semana\": "+actualWod.getSemana()+",\n" +
-                "        \"check\": "+actualWod.getCompleto()+"\n" +
+                "        \"idWod\": " + actualWod.getIdWod() + ",\n" +
+                "        \"idUsuario\": " + actualWod.getIdUsuario() + ",\n" +
+                "        \"comentario\": \"" + actualWod.getComentario() + "\",\n" +
+                "        \"dia\": " + actualWod.getDia() + ",\n" +
+                //  "        \"fecha\": \""+actualWod.getFecha().toString()+"\",\n" +
+                "        \"semana\": " + actualWod.getSemana() + ",\n" +
+                "        \"check\": " + actualWod.getCompleto() + "\n" +
                 "    }";
 
         Call<Wod> call = apiAdapter.setWod(jsonRawWod);
-        call.enqueue(new Callback<Wod> () {
+        call.enqueue(new Callback<Wod>() {
             @Override
-            public void onResponse(Call<Wod>  call, Response<Wod>  response) {
+            public void onResponse(Call<Wod> call, Response<Wod> response) {
 
-                if(!response.isSuccessful()){
+                if (!response.isSuccessful()) {
 
-                }else{
+                } else {
                     /*Wod body = response.body();
                     actualWod = body;*/
                 }
@@ -220,7 +222,7 @@ public class TrainingDailyActions {
             }
 
             @Override
-            public void onFailure(Call<Wod>  call, Throwable t) {
+            public void onFailure(Call<Wod> call, Throwable t) {
                 Log.d("actualWodGrabar", "fallo");
             }
         });

@@ -14,6 +14,7 @@ public class Globals {
     public static float lastRmCleanJerk = 0;
     public static int type ;
     public static int actualWod ;
+    public static int semana ;
 
 
 }

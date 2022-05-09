@@ -39,6 +39,8 @@
     <string name="men">Hombre</string>
     <string name="woman">Mujer</string>
 
+
+    <string name="week">semana</string>
     <string name="NewWodCreate"> Nuevo wod creado</string>
 
     <string name="makeOptions">Crear nuevo entrenamiento</string>
