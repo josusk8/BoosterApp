@@ -35,8 +35,11 @@
 
     <string name="NewRmCreate">Nuevo RM creado</string>
 
+    <string name="save">Guardar</string>
     <string name="men">Hombre</string>
     <string name="woman">Mujer</string>
+
+    <string name="NewWodCreate"> Nuevo wod creado</string>
 
     <string name="makeOptions">Crear nuevo entrenamiento</string>
     <string name="aboutOptions">App info</string>

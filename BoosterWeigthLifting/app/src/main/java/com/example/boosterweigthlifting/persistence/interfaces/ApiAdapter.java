@@ -86,6 +86,22 @@ public interface ApiAdapter {
     @POST("wod")
     Call<Wod> setWod(@Body String rawJsonString);
 
+    @Headers("Content-Type:application/json")
+    @POST("mov/principal")
+    Call<MovimientoPrincipal> setMovPrincipal(@Body String rawJsonString);
+
+    @Headers("Content-Type:application/json")
+    @POST("mov/pullprincipal")
+    Call<PullMovimientoPrincipal> setPullMovPrincipal(@Body String rawJsonString);
+
+    @Headers("Content-Type:application/json")
+    @POST("mov/varsecundario")
+    Call<VarMovimientoSecundario> setVarSecundario(@Body String rawJsonString);
+
+    @Headers("Content-Type:application/json")
+    @POST("mov/squat")
+    Call<Squat> setSentadillaas(@Body String rawJsonString);
+
 
     @Headers("Content-Type:application/json")
     @POST("wod")

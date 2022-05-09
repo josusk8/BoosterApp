@@ -1,5 +1,6 @@
 package com.example.boosterweigthlifting.ui.menu.training;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -89,6 +91,7 @@ public class TrainingFragment extends Fragment {
 
         getPersistencia();
 
+
         AutoCompleteTextView actv1 = (AutoCompleteTextView) view.findViewById(R.id.autoComplete1);
         AutoCompleteTextView actv2 = (AutoCompleteTextView) view.findViewById(R.id.autoComplete2);
         AutoCompleteTextView actv3 = (AutoCompleteTextView) view.findViewById(R.id.autoComplete3);
@@ -106,6 +109,8 @@ public class TrainingFragment extends Fragment {
                 new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.movimiento_variante2)));
         ArrayList<String> sentadillas =
                 new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.sentadillas)));
+
+
 
         ImageButton week1 = (ImageButton) view.findViewById(R.id.week1);
         ImageButton week2 = (ImageButton) view.findViewById(R.id.week2);
@@ -211,17 +216,30 @@ public class TrainingFragment extends Fragment {
 
 
         Button btnCalcular = (Button) view.findViewById(R.id.btnCalcular);
+        TextView btnGuardar = (TextView) view.findViewById(R.id.btnGuardar);
 
         btnCalcular.setOnClickListener(new AdapterView.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
                 int dia = 0;
                 trainingActions = new TrainingActions(view);
                 trainingActions.setTraining(semana, dia);
+                btnGuardar.setClickable(true);
+                btnGuardar.setTextColor(R.color.black);
 
             }
         });
 
+
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                trainingActions.setPersistencia();
+
+            }
+        });
 
         return view;
     }
@@ -372,6 +390,7 @@ public class TrainingFragment extends Fragment {
         });
 
     }
+
 
 }
 

@@ -71,7 +71,9 @@ It can NOT have other symbols.</string>
     <string name="NewRmCreate">New RM create</string>
 
     <string name="selectOne">Select one this</string>
+    <string name="save">Save</string>
 
+    <string name="NewWodCreate"> New wod create</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

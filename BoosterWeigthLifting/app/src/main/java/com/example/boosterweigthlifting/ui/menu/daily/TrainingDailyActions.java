@@ -200,7 +200,7 @@ public class TrainingDailyActions {
                 "        \"idUsuario\": "+actualWod.getIdUsuario()+",\n" +
                 "        \"comentario\": \""+actualWod.getComentario()+"\",\n" +
                 "        \"dia\": "+actualWod.getDia()+",\n" +
-                "        \"fecha\": \"2022"+actualWod.getFecha().toString()+"-04-08\",\n" +
+              //  "        \"fecha\": \""+actualWod.getFecha().toString()+"\",\n" +
                 "        \"semana\": "+actualWod.getSemana()+",\n" +
                 "        \"check\": "+actualWod.getCompleto()+"\n" +
                 "    }";
