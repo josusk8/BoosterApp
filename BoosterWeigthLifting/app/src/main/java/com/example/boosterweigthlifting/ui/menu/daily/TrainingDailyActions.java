@@ -127,11 +127,11 @@ public class TrainingDailyActions {
                 position = wods.size() - 1;
                 Wod wod = wods.get(position);
                 rellenarCampos(wod);
+
             } else {
                 position--;
                 Wod wod = wods.get(position);
                 rellenarCampos(wod);
-                // grabar(wod);
             }
 
         }
@@ -187,24 +187,24 @@ public class TrainingDailyActions {
 
     public void grabar(Wod wod) {
 
-        actualWod.setComentario(tvComent.getText().toString());
+        wod.setComentario(tvComent.getText().toString());
         if (checkBox.isChecked()) {
-            actualWod.setCompleto(1);
+            wod.setCompleto(1);
         } else {
-            actualWod.setCompleto(0);
+            wod.setCompleto(0);
         }
 
 
         ApiAdapter apiAdapter = RetrofitClient.getClient().create(ApiAdapter.class);
 
         String jsonRawWod = "{\n" +
-                "        \"idWod\": " + actualWod.getIdWod() + ",\n" +
-                "        \"idUsuario\": " + actualWod.getIdUsuario() + ",\n" +
-                "        \"comentario\": \"" + actualWod.getComentario() + "\",\n" +
-                "        \"dia\": " + actualWod.getDia() + ",\n" +
+                "        \"idWod\": " + wod.getIdWod() + ",\n" +
+                "        \"idUsuario\": " + wod.getIdUsuario() + ",\n" +
+                "        \"comentario\": \"" + wod.getComentario() + "\",\n" +
+                //"        \"dia\": " + wod.getDia() + ",\n" +
                 //  "        \"fecha\": \""+actualWod.getFecha().toString()+"\",\n" +
-                "        \"semana\": " + actualWod.getSemana() + ",\n" +
-                "        \"check\": " + actualWod.getCompleto() + "\n" +
+                //"        \"semana\": " + wod.getSemana() + ",\n" +
+                "        \"check\": " + wod.getCompleto() + "\n" +
                 "    }";
 
         Call<Wod> call = apiAdapter.setWod(jsonRawWod);
